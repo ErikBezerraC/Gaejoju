@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Revisao extends StatefulWidget {
   const Revisao({super.key});
@@ -52,8 +53,8 @@ buildContainer({required String assunto}){
     
     child: Center(
         child: Text(assunto,
-          style: TextStyle(
-            color: Colors.yellowAccent,
+          style: GoogleFonts.comicNeue(
+            color: Colors.white,
             fontSize: 30,
             fontWeight: FontWeight.bold))),
   );
