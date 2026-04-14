@@ -1,0 +1,76 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+
+# Flutter specific
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+
+# Generated files
+**/generated_plugin_registrant.dart
+
+# Android
+android/.gradle/
+android/app/build/
+android/key.properties
+android/local.properties
+*.keystore
+*.jks
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/Runner.xcodeproj/xcuserdata/
+ios/DerivedData/
+
+# macOS
+macos/Pods/
+macos/Flutter/ephemeral/
+macos/Runner.xcworkspace/
+macos/Runner.xcodeproj/xcuserdata/
+
+# Windows
+windows/flutter/ephemeral/
+
+# Linux
+linux/flutter/ephemeral/
+
+# Web
+build/web/
+
+# Coverage
+coverage/
+
+# Firebase / Config (opcional - cuidado com segredos)
+google-services.json
+GoogleService-Info.plist
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# IntelliJ
+out/
+
+# VS Code settings (opcional)
+.vscode/settings.json
