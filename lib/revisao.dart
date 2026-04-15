@@ -12,10 +12,32 @@ class _RevisaoState extends State<Revisao> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF4F2B82),
+        title: TextField(
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.search,color: Colors.white,),
+            suffixIcon: Icon(Icons.computer,color: Colors.white),
+            hintText: 'Pesquisar',
+            hintStyle: TextStyle(
+              color: Colors.white70, // cor do hint
+            ),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(32),
+                borderSide: BorderSide(
+                  color: Colors.white, // cor da borda
+                  width: 4, // grossura
+                ),
+            ),
+
+          ),
+        ),
+
+        ),
         backgroundColor: Color(0xFF4F2B82),
         body: Padding(padding:
         EdgeInsets.only(
-          top: 70,
+          top: 30,
           left: 20,
           right: 20,
           bottom: 0, //alterando as bordas
