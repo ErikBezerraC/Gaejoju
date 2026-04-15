@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projetogaejoju/amigos.dart';
 import 'package:projetogaejoju/aulas.dart';
 import 'package:projetogaejoju/mascote.dart';
 import 'package:projetogaejoju/profile.dart';
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   List pages = [
     Aulas(),
     Revisao(),
+    Amigos(),
     Mascote(),
     Profile()
   ];
@@ -27,10 +29,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Color(0xFF8D5CD1),
           currentIndex: selectedIndex, //o index da barra (cada posição do item) fica correspondente a variavel que declaramos
           showSelectedLabels: true, //coloca o nome dos itens nao selecionados
           unselectedItemColor: Colors.grey, //coloca cor nos itens que nao tiverem selecionados
-          selectedItemColor: Colors.blue, //colcoa uam cor especifica para o item selecionado
+          selectedItemColor: Colors.white, //colcoa uam cor especifica para o item selecionado
           type: BottomNavigationBarType.fixed, //tira o movimento na hora de apertar em uma item
           onTap: (index){ //a troca do item fica por toque
             setState(() {
@@ -41,6 +44,7 @@ class _HomePageState extends State<HomePage> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Aulas'),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Revisao'),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Amigos'),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Mascote'),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Profile')
           ]),
