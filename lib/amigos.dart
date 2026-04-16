@@ -35,7 +35,7 @@ class _AmigosState extends State<Amigos> {
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration( //lê oq o usuario digita
                   prefixIcon: Icon(Icons.search, color: Colors.white),
-                  hintText: 'Pesquisar', //esse texto fica sumidinho e quando escreve desaparece
+                  hintText: 'Pesquisar constatos', //esse texto fica sumidinho e quando escreve desaparece
                   hintStyle: TextStyle(color: Colors.white70),
 
                   contentPadding: EdgeInsets.symmetric(vertical: 5),
@@ -84,7 +84,7 @@ conversas({required String nome,required String img, required String msg, requir
         ),
     ),
     subtitle: Text(msg,style:GoogleFonts.comicNeue(
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.6), //deixa mais transparente
         fontWeight: FontWeight.bold,
         fontSize: 13
         ),

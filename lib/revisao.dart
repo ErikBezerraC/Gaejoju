@@ -18,7 +18,7 @@ class _RevisaoState extends State<Revisao> {
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.search,color: Colors.white,),
             suffixIcon: Icon(Icons.computer,color: Colors.white),
-            hintText: 'Pesquisar',
+            hintText: 'Pesquisar assuntos',
             hintStyle: TextStyle(
               color: Colors.white70, // cor do hint
             ),
