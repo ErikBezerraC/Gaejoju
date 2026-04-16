@@ -57,6 +57,26 @@ class _AmigosState extends State<Amigos> {
       ),
 
       backgroundColor: Color(0xFF4F2B82),
+      
+      body: ListView(
+        children: [
+          conversas(nome: 'Taylor Swift', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0fRq-Y13eilOU5TRxLv0PXf2xT-kiUT__w&s', msg: 'Hi, Im taylor', hora: '13:13')
+        ],
+      ),
     );
   }
+}
+
+conversas({required String nome,required String img, required String msg, required String hora}){
+  return ListTile( //ele ja vem com uma identação para alog na esquerda e na direita, uma msg e um subtitulo
+    
+    leading: CircleAvatar( //leading é oq tem no lado direito, no nosso caso e a foto da pessoa
+      backgroundImage: NetworkImage(img),
+    ),
+    
+    title: Text(nome),
+    subtitle: Text(msg),
+    trailing: Text(hora), //é o mesm oque o leading soq no lado esquerdo
+    
+  );
 }
