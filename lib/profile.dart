@@ -8,15 +8,35 @@ class Profile extends StatefulWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF4F2B82),
+        title: Row(
+          children: [
+
+            Text('Perfil',style:GoogleFonts.comicNeue(
+              color:Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+              )
+            ),
+            SizedBox(
+                width:275
+            ),
+            Icon(Icons.settings,
+              color: Colors.white,
+              size: 25,
+            )
+          ],
+        ),
+      ),
       backgroundColor: Color(0xFF4F2B82),
       body: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start, //jogando o widget pra cima
 
              children: [
-               SizedBox (height: 40),
                buildContainer(url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVJdld9FG1S3HXfELeAofZ3MWauAcBxBtwWQ&s',nome:'Marina Sena',gmail:'marinasena@gmail.com'),
-
+               //quantidade de strikes, conquistas,
             ],
         ),
       ),
@@ -39,10 +59,10 @@ buildContainer({required String url, required String nome, required String gmail
           SizedBox(height: 35),
           //o container foi usado para adicionar borda
           Container(
-            padding: EdgeInsets.all(3), // espessura da borda
+            padding: EdgeInsets.all(5), // espessura da borda
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white, // cor da borda
+              color: Colors.deepPurple, // cor da borda
             ),
             child: CircleAvatar(
               radius: 70,
@@ -70,7 +90,21 @@ buildContainer({required String url, required String nome, required String gmail
             color: Colors.white,
             fontWeight: FontWeight.bold,
           )
-        )
+        ),
+        SizedBox(
+          height:20,
+        ),
+        Container(
+          width: 350,
+          height: 270, //tamanho do container
+          decoration: BoxDecoration(
+            color: Color(0xFFA770F4), //adicionando cor de fundo
+            borderRadius: BorderRadius.circular(8), //arredondando as bordas
+          )
+        ),
+          SizedBox(
+            height:20,
+          ),
         ]
     ),
   )
