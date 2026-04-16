@@ -60,7 +60,9 @@ class _AmigosState extends State<Amigos> {
       
       body: ListView(
         children: [
-          conversas(nome: 'Taylor Swift', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0fRq-Y13eilOU5TRxLv0PXf2xT-kiUT__w&s', msg: 'Hi, Im taylor', hora: '13:13')
+          conversas(nome: 'Taylor Swift', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0fRq-Y13eilOU5TRxLv0PXf2xT-kiUT__w&s', msg: 'Hi, Im taylor', hora: '13:13'),
+          conversas(nome: 'Lady gaga', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoag78eTwZLaauW9vUlROdFkj82lKetZzMXA&s', msg: 'Dont call me gaga', hora: '9:11'),
+          conversas(nome: 'Juliano Floss', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaFFy4koCXHyanRg5eSX3JPMFvME0Wwaa-vQ&s', msg: 'Já papou coxinha fofa?', hora: '3:33')
         ],
       ),
     );
@@ -71,12 +73,28 @@ conversas({required String nome,required String img, required String msg, requir
   return ListTile( //ele ja vem com uma identação para alog na esquerda e na direita, uma msg e um subtitulo
     
     leading: CircleAvatar( //leading é oq tem no lado direito, no nosso caso e a foto da pessoa
-      backgroundImage: NetworkImage(img),
+      radius: 30,
+      backgroundImage: NetworkImage(img,),
     ),
     
-    title: Text(nome),
-    subtitle: Text(msg),
-    trailing: Text(hora), //é o mesm oque o leading soq no lado esquerdo
+    title: Text(nome,style:GoogleFonts.comicNeue(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 23,
+        ),
+    ),
+    subtitle: Text(msg,style:GoogleFonts.comicNeue(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 13
+        ),
+    ),
+    trailing: Text(hora,style:GoogleFonts.comicNeue(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 12
+        ),
+    ), //é o mesm oque o leading soq no lado esquerdo
     
   );
 }
