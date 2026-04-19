@@ -53,28 +53,19 @@ class _AulasState extends State<Aulas> {
           )
       ),
     ),
-        backgroundColor: Color(0xFF4F2B82),
-        body: ListView(
+      backgroundColor: Color(0xFF4F2B82),
+      body:  ListView(
+        children: [
+          Column(
             children: [
-              Column(children: [
-                SizedBox(
-                  height: 40,
-                ),
-                containerBotao(),
-                containerTraco(),
-                containerBotaofase(),
-                containerTraco(),
-                containerBotaofase(),
-                containerTraco(),
-                containerBotaofase(),
-                containerTraco(),
-                containerBotao()
-
-              ],)
-            ]
-        )
+              containerAula(),
+              containerAula(),
+              containerAula()
+            ],
+          ),
+        ],
+      ),
     );
-
   }
 }
 containerBotaofase(){
@@ -100,11 +91,51 @@ containerBotao(){
 containerTraco(){
   return Container(
       child: Column(
-          children: [Text('|', style: TextStyle(color: Colors.white)),
-            Text('|', style: TextStyle(color: Colors.white)),
-            Text('|', style: TextStyle(color: Colors.white)),
-            Text('|', style: TextStyle(color: Colors.white)),
+          children: [
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
+            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
           ]
       )
+  );
+}
+containerAula(){
+  return Container(
+    width: 360,
+    height: 830,
+
+    child: Column(children: [
+              SizedBox(
+                height: 40,
+              ),
+              containerBotao(),
+              containerTraco(),
+              containerBotaofase(),
+              containerTraco(),
+              containerBotaofase(),
+              containerTraco(),
+              containerBotaofase(),
+              containerTraco(),
+              containerBotao()
+
+            ],
+            ),
   );
 }
