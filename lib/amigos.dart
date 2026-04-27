@@ -18,13 +18,23 @@ class _AmigosState extends State<Amigos> {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start, //para ir do começo do column
           children: [
-            Text(
-              'AMIGOS', //nome lá em cima
-              style: GoogleFonts.comicNeue(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              children: [
+                Text(
+                  'AMIGOS', //nome lá em cima
+                  style: GoogleFonts.comicNeue(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                SizedBox(width: 181,),
+                Icon(Icons.sports_esports_outlined, color: Colors.white, size:30),
+
+                SizedBox(width: 25,),
+                Icon(Icons.person_add, color: Colors.white,size: 30),
+              ],
             ),
 
             SizedBox(height: 5), //espaçamento da pesquisa
