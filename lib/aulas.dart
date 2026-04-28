@@ -58,9 +58,9 @@ class _AulasState extends State<Aulas> {
         children: [
           Column(
             children: [
-              containerAula(),
-              containerAula(),
-              containerAula()
+              containerAula(url:'assets/aulas/backgroundVariaveis.png'),
+              containerAula(url: 'assets/aulas/backgroundVariaveisContinuando.png'),
+              containerAula(url: 'assets/aulas/backgroundVariaveisContinuando.png'),
             ],
           ),
         ],
@@ -76,6 +76,7 @@ containerBotaofase(){
       color: Colors.deepPurple,
       shape: BoxShape.circle,
     ),
+
   );
 }
 containerBotao(){
@@ -83,8 +84,12 @@ containerBotao(){
     width: 100,
     height: 100,
     decoration: BoxDecoration(
-      color: Color(0xFFA770F1),
+      color: Color(0xFF8D55DD),
       shape: BoxShape.circle,
+    ),
+
+    child: Center(
+      child: Icon(Icons.star, size: 45,color: Colors.white,),
     ),
   );
 }
@@ -116,10 +121,14 @@ containerTraco(){
       )
   );
 }
-containerAula(){
+containerAula({required String url}){
   return Container(
-    width: 360,
+    width: 380,
     height: 830,
+
+    decoration: BoxDecoration(
+      image: DecorationImage(image: AssetImage(url), fit: BoxFit.cover),
+    ),
 
     child: Column(children: [
               SizedBox(

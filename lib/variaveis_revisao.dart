@@ -49,7 +49,7 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
           SizedBox(height: 17,),
           Center(
             child: Container(
-              height: 1730,
+              height: 1890,
               width: 365,
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
@@ -72,17 +72,16 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
                       ),),
                   ),
 
-                  SizedBox(height: 20,),
-
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                    child: Container(
-
-                    ), //adicionar a tirinha aqui
+                    child: Image.asset('assets/revisao/revisaoVariaveis/tirinha.jpg',
+                        height: 210,
+                        width: 460,
+                    ),
                   ),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 2,vertical: 5),
                     child: Text('Antes de utilizá-las, é necessário declará-las informando o tipo, como int, float, char ou double. Elas podem ser inicializadas já na declaração, por exemplo: int idade = 20;. Os nomes das variáveis devem seguir regras, como não começar com números nem usar palavras reservadas. Além disso, podem ter escopo local (dentro de funções) ou global (fora delas). O uso correto de variáveis ajuda na organização e no bom funcionamento do programa.',
                       textAlign: TextAlign.justify,
                       style: GoogleFonts.comicNeue(

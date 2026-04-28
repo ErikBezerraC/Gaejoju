@@ -67,17 +67,17 @@ class _RevisaoState extends State<Revisao> {
           child: SingleChildScrollView(
             child:Column(
             children: [ //adiciona um espaço entre os containers
-              buildContainer(assunto: 'VARIÁVEIS'),
+              buildContainer(assunto: 'VARIÁVEIS', url: 'assets/revisao/revisaoVariaveis.jpg'),
               SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'OPERAÇÕES '),
+              buildContainer(assunto: 'OPERAÇÕES ',url: 'assets/revisao/revisaoVariaveis.jpg'),
               SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'CONDIÇÃO'),
+              buildContainer(assunto: 'CONDIÇÃO',url: 'assets/revisao/revisaoVariaveis.jpg'),
               SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'REPETIÇÃO'),
+              buildContainer(assunto: 'REPETIÇÃO',url: 'assets/revisao/revisaoVariaveis.jpg'),
               SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'FUNÇÃO'),
+              buildContainer(assunto: 'FUNÇÃO',url: 'assets/revisao/revisaoVariaveis.jpg'),
               SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'BIBLIOTECAS')
+              buildContainer(assunto: 'BIBLIOTECAS',url: 'assets/revisao/revisaoVariaveis.jpg')
             ],
             )
           ),
@@ -86,13 +86,16 @@ class _RevisaoState extends State<Revisao> {
   }
 }
 
-buildContainer({required String assunto}){
+buildContainer({required String assunto, required String url}){
   return Container(
     width: 350,
     height: 100, //tamanho do container
-    decoration: BoxDecoration(
-      color: Color(0xFFA770F4), //adicionando cor de fundo
+    decoration: BoxDecoration( //adicionando cor de fundo
       borderRadius: BorderRadius.circular(8), //arredondando as bordas
+      image: DecorationImage(
+          image: AssetImage(url),
+          fit: BoxFit.cover, //cobre o container inteiro
+      ),
     ),
     
     child: Center(
