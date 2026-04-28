@@ -77,6 +77,10 @@ containerBotaofase(){
       shape: BoxShape.circle,
     ),
 
+    child: Center(
+      child: Icon(Icons.star_border_outlined, size: 30,color: Colors.white,),
+    ),
+
   );
 }
 containerBotao(){
@@ -89,7 +93,7 @@ containerBotao(){
     ),
 
     child: Center(
-      child: Icon(Icons.star, size: 45,color: Colors.white,),
+      child: Icon(Icons.star_border_outlined, size: 45,color: Colors.white,),
     ),
   );
 }

@@ -58,7 +58,7 @@ class _ConfigState extends State<Config> {
 
 buildContainer(){
   return Container(
-    height: 300,
+    height: 510,
     width: 350,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15) ,
@@ -109,7 +109,7 @@ buildContainer(){
                 width: 178,
               ),
 
-              Icon(Icons.notifications_active,color: Colors.white, size: 23,),
+              Icon(Icons.notifications_active_outlined,color: Colors.white, size: 23,),
             ],
           ),
 
@@ -121,7 +121,7 @@ buildContainer(){
               ),),
 
               SizedBox(
-                width: 120,
+                width: 122,
               ),
 
               Icon(Icons.block,color: Colors.white, size: 23,),
@@ -129,6 +129,69 @@ buildContainer(){
           ),
 
           linhas(),
+
+          Row(
+            children: [
+              Text('Privacidade e Segurança',style: GoogleFonts.comicNeue(
+                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
+              ),),
+
+              SizedBox(
+                width: 50,
+              ),
+
+              Icon(Icons.lock_outline,color: Colors.white, size: 23,),
+            ],
+          ),
+
+          linhas(),
+
+          Row(
+            children: [
+              Text('Sobre o App',style: GoogleFonts.comicNeue(
+                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
+              ),),
+
+              SizedBox(
+                width: 174,
+              ),
+
+              Icon(Icons.phone_android,color: Colors.white, size: 23,),
+            ],
+          ),
+
+          linhas(),
+
+          Row(
+            children: [
+              Text('Suporte',style: GoogleFonts.comicNeue(
+                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
+              ),),
+
+              SizedBox(
+                width: 220,
+              ),
+
+              Icon(Icons.people_alt_outlined,color: Colors.white, size: 23,),
+            ],
+          ),
+
+          linhas(),
+
+          Row(
+            children: [
+              Text('Encerrar Sessão',style: GoogleFonts.comicNeue(
+                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
+              ),),
+
+              SizedBox(
+                width: 131,
+              ),
+
+              Icon(Icons.door_back_door_outlined,color: Colors.white, size: 23,),
+            ],
+          ),
+
         ],
       ),
     ),
@@ -136,8 +199,14 @@ buildContainer(){
 }
 
 linhas(){
-  return Text('_______________________________________________',style: TextStyle(
-    color: Colors.deepPurple, fontSize: 15,
+  return Column(
+    children: [
+      Text('_______________________________________________',style: TextStyle(
+        color: Colors.deepPurple, fontSize: 15, fontWeight: FontWeight.bold,
 
-  ),);
+      ),),
+
+      SizedBox(height: 10,),
+    ],
+  );
 }

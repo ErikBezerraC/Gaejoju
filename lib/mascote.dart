@@ -137,6 +137,12 @@ containerArmario(){
             SizedBox(
               width: 4,
             ),
+
+            containerQuadrados(url: 'assets/mascoteLoja/ZoroIcon.png'),
+            SizedBox(
+              width: 4,
+            ),
+
           Container(
             height: 60,
             width: 60,
@@ -153,10 +159,6 @@ containerArmario(){
               child: Image.asset('assets/mascoteLoja/default.png',height: double.infinity,width: double.infinity,),
             ),
             ),
-            SizedBox(
-              width: 4,
-            ),
-            containerQuadrados(url: 'assets/mascoteLoja/default.png'),
             SizedBox(
               width: 4,
             ),
