@@ -13,7 +13,7 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xFF4F2B82),
+        backgroundColor: Color(0xFF4F2B82),
 
         title: Container(
           height: 45,
@@ -23,10 +23,9 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
               borderRadius: BorderRadius.circular(15),
           ),
 
-
           child: Row(
             children: [
-              SizedBox(height: 5, width: 8,),
+              SizedBox(width: 8,),
               Text(
                 'VARIÁVEIS', style: GoogleFonts.comicNeue(
                 color: Colors.white,
@@ -49,7 +48,7 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
           SizedBox(height: 17,),
           Center(
             child: Container(
-              height: 1890,
+              height: 1910,
               width: 365,
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
@@ -81,7 +80,7 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
                   ),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 2,vertical: 5),
+                    padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                     child: Text('Antes de utilizá-las, é necessário declará-las informando o tipo, como int, float, char ou double. Elas podem ser inicializadas já na declaração, por exemplo: int idade = 20;. Os nomes das variáveis devem seguir regras, como não começar com números nem usar palavras reservadas. Além disso, podem ter escopo local (dentro de funções) ou global (fora delas). O uso correto de variáveis ajuda na organização e no bom funcionamento do programa.',
                       textAlign: TextAlign.justify,
                       style: GoogleFonts.comicNeue(

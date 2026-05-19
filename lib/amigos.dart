@@ -45,17 +45,17 @@ class _AmigosState extends State<Amigos> {
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration( //lê oq o usuario digita
                   prefixIcon: Icon(Icons.search, color: Colors.white),
-                  hintText: 'Pesquisar constatos', //esse texto fica sumidinho e quando escreve desaparece
+                  hintText: 'Pesquisar contatos', //esse texto fica sumidinho e quando escreve desaparece
                   hintStyle: TextStyle(color: Colors.white70),
 
                   contentPadding: EdgeInsets.symmetric(vertical: 5),
 
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder( //aparência padrão da borda quando inativa
                     borderRadius: BorderRadius.circular(32),
                     borderSide: BorderSide(color: Colors.white, width: 2),
                   ),
 
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: OutlineInputBorder( //aparência da borda quando está escrevendo
                     borderRadius: BorderRadius.circular(32),
                     borderSide: BorderSide(color: Colors.white, width: 2),
                   ),
@@ -84,9 +84,9 @@ class _AmigosState extends State<Amigos> {
 }
 
 conversas({required String nome,required String img, required String msg, required String hora}){
-  return ListTile( //ele ja vem com uma identação para alog na esquerda e na direita, uma msg e um subtitulo
+  return ListTile( //ele ja vem com uma identação para algo na esquerda e na direita, uma msg e um subtitulo
     
-    leading: CircleAvatar( //leading é oq tem no lado direito, no nosso caso e a foto da pessoa
+    leading: CircleAvatar( //leading é oq tem no lado esquerdo, no nosso caso e a foto da pessoa
       radius: 30,
       backgroundImage: NetworkImage(img,),
     ),
@@ -108,7 +108,7 @@ conversas({required String nome,required String img, required String msg, requir
         fontWeight: FontWeight.bold,
         fontSize: 12
         ),
-    ), //é o mesm oque o leading soq no lado esquerdo
+    ), //é o mesm oque o leading soq no lado direito
     
   );
 }
