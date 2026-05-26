@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../widget/ofensiva.dart';
 class Profile extends StatefulWidget {
   const Profile({super.key});
   @override
@@ -139,13 +141,7 @@ containerDias(){
           children: [
             Padding(
               padding: EdgeInsets.only( left: 12),
-              child: Stack(
-                children: [
-                  Icon(Icons.whatshot_outlined, color: Colors.red, size: 50),
-                  Icon(Icons.whatshot, color: Colors.deepOrangeAccent, size: 48),
-                  Icon(Icons.whatshot_outlined, color: Colors.amber, size: 47), //besteiragem pra fazer ficar bonitinho
-                ],
-              ),
+              child: Ofensiva(tamanho1: 50, tamanho2: 48, tamanho3: 47,),
 
             ),
 

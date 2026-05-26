@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projetogaejoju/widget/ofensiva.dart';
 
 class Aulas extends StatefulWidget {
   const Aulas({super.key});
@@ -27,13 +28,7 @@ class _AulasState extends State<Aulas> {
                 child: Center(
                     child: Row(
                       children: [
-                        Stack(
-                          children: [
-                            Icon(Icons.whatshot_outlined, color: Colors.red, size: 37),
-                            Icon(Icons.whatshot, color: Colors.deepOrangeAccent, size: 35),
-                            Icon(Icons.whatshot_outlined, color: Colors.amber, size: 34), //besteiragem pra fazer ficar bonitinho
-                          ],
-                        ),
+                        Ofensiva(tamanho1: 37, tamanho2: 35, tamanho3: 34,),
                         Text('-------', style: TextStyle(color: Colors.amber)),
                         Icon(Icons.monetization_on, color: Colors.amber),
                         Text('-------', style: TextStyle(color: Colors.amber)),

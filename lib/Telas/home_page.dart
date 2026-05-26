@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projetogaejoju/amigos.dart';
-import 'package:projetogaejoju/aulas.dart';
-import 'package:projetogaejoju/mascote.dart';
-import 'package:projetogaejoju/profile.dart';
-import 'package:projetogaejoju/revisao.dart';
+import 'package:projetogaejoju/Telas/amigos.dart';
+import 'package:projetogaejoju/Telas/aulas.dart';
+import 'package:projetogaejoju/Telas/mascote.dart';
+import 'package:projetogaejoju/Telas/profile.dart';
+import 'package:projetogaejoju/Telas/revisao.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
