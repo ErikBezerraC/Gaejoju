@@ -4,73 +4,100 @@
 *.pyc
 *.swp
 .DS_Store
-.idea/
-.vscode/
-*.iml
+Thumbs.db
+.atom/
+.buildlog/
+.history
+.svn/
 
-# Flutter/Dart/Pub related
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Dart / Flutter
 .dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
 .packages
 .pub/
 .pub-cache/
 build/
-
-# Flutter specific
-.flutter-plugins
-.flutter-plugins-dependencies
-.metadata
-
-# Generated files
-**/generated_plugin_registrant.dart
-
-# Android
-android/.gradle/
-android/app/build/
-android/key.properties
-android/local.properties
-*.keystore
-*.jks
-
-# iOS
-ios/Pods/
-ios/.symlinks/
-ios/Flutter/Flutter.framework
-ios/Flutter/Flutter.podspec
-ios/Runner.xcworkspace/
-ios/Runner.xcodeproj/project.xcworkspace/
-ios/Runner.xcodeproj/xcuserdata/
-ios/DerivedData/
-
-# macOS
-macos/Pods/
-macos/Flutter/ephemeral/
-macos/Runner.xcworkspace/
-macos/Runner.xcodeproj/xcuserdata/
-
-# Windows
-windows/flutter/ephemeral/
-
-# Linux
-linux/flutter/ephemeral/
-
-# Web
-build/web/
-
-# Coverage
 coverage/
 
-# Firebase / Config (opcional - cuidado com segredos)
-google-services.json
-GoogleService-Info.plist
+# Generated
+**/doc/api/
+lib/generated_plugin_registrant.dart
+
+# Obfuscation / Symbols
+app.*.symbols
+app.*.map.json
+
+# Environment
+.env
+.env.*
+
+# Firebase
+firebase-debug.log
+firebase-debug.*.log
 
 # Fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/
-fastlane/test_output/
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots/**/*.png
+**/fastlane/test_output
 
-# IntelliJ
-out/
+# ----------------------
+# Android
+# ----------------------
+android/.gradle/
+android/captures/
+android/local.properties
 
-# VS Code settings (opcional)
-.vscode/settings.json
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# ----------------------
+# iOS
+# ----------------------
+ios/Flutter/.last_build_id
+ios/Flutter/ephemeral/
+ios/Flutter/flutter_export_environment.sh
+ios/.symlinks/
+ios/Pods/
+
+# Xcode
+ios/Runner.xcworkspace/
+xcuserdata/
+
+# ----------------------
+# macOS
+# ----------------------
+macos/Flutter/ephemeral/
+macos/Pods/
+macos/Runner.xcworkspace/
+macos/xcuserdata/
+
+# ----------------------
+# Linux
+# ----------------------
+linux/flutter/ephemeral/
+
+# ----------------------
+# Windows
+# ----------------------
+windows/flutter/ephemeral/
+
+# ----------------------
+# Fuchsia
+# ----------------------
+fuchsia/.packages
+fuchsia/build/
+
+
+# Generated plugin registrants
+ios/Runner/GeneratedPluginRegistrant.*
+macos/Flutter/GeneratedPluginRegistrant.swift
+linux/flutter/generated_plugin_registrant.*
+windows/flutter/generated_plugin_registrant.*
