@@ -53,7 +53,7 @@ buildContainer({required String assunto}){
     child: Center(
         child: Text(assunto,
           style: TextStyle(
-            color: Colors.yellowAccent,
+            color: Colors.white,
             fontSize: 30,
             fontWeight: FontWeight.bold))),
   );
