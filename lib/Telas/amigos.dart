@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/db/fake_database.dart';
+import 'package:projetogaejoju/widget/container_conversas.dart';
 
 class Amigos extends StatefulWidget {
   const Amigos({super.key});
@@ -68,47 +70,13 @@ class _AmigosState extends State<Amigos> {
 
       backgroundColor: Color(0xFF4F2B82),
       
-      body: ListView(
-        children: [
-          conversas(nome: 'Taylor Swift', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0fRq-Y13eilOU5TRxLv0PXf2xT-kiUT__w&s', msg: 'Hi, Im taylor', hora: '13:13'),
-          conversas(nome: 'Lady gaga', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoag78eTwZLaauW9vUlROdFkj82lKetZzMXA&s', msg: 'Dont call me gaga', hora: '9:11'),
-          conversas(nome: 'Juliano Floss', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaFFy4koCXHyanRg5eSX3JPMFvME0Wwaa-vQ&s', msg: 'Já papou coxinha fofa?', hora: '3:33'),
-          conversas(nome: 'Chappell Roan', img: 'https://s2-g1.glbimg.com/EaTgMzR1sJ8Bhl3kqCc4iJ5d-LQ=/0x0:5708x3805/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/D/t/AZTnixSEK7XCSBH3KnAg/ap26033005917016.jpg', msg: 'Você tem filho não, né?', hora: '5:17'),
-          conversas(nome: 'Pablo Vitar', img: 'https://jogada10.com.br/wp-content/uploads/2024/05/GNPJ86UXcAAyvGb_Easy-Resize.com_.jpg', msg: 'Seu amor me pegou', hora: '18:54'),
-          conversas(nome: 'Walker Scobell', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuWpLICQ-_kxetYWl1hyL8zsAHnX2yjSt3tg&s', msg: 'Onde tá a Leah?', hora: '01:43'),
-          conversas(nome: 'Perseu Jackson', img: 'https://pbs.twimg.com/media/El7bWkMXgAE-lwV.jpg', msg: 'Eu não sou loiro burro', hora: '14:51'),
-        ],
+      body: ListView.builder(
+        itemCount: FakeDatabase.listaConvervas.length,
+
+        itemBuilder: (context,i){
+          return ContainerConversas(conversas: FakeDatabase.listaConvervas[i],);
+        },
       ),
     );
   }
-}
-
-conversas({required String nome,required String img, required String msg, required String hora}){
-  return ListTile( //ele ja vem com uma identação para algo na esquerda e na direita, uma msg e um subtitulo
-    
-    leading: CircleAvatar( //leading é oq tem no lado esquerdo, no nosso caso e a foto da pessoa
-      radius: 30,
-      backgroundImage: NetworkImage(img,),
-    ),
-    
-    title: Text(nome,style:GoogleFonts.comicNeue(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 23,
-        ),
-    ),
-    subtitle: Text(msg,style:GoogleFonts.comicNeue(
-        color: Colors.white.withOpacity(0.6), //deixa mais transparente
-        fontWeight: FontWeight.bold,
-        fontSize: 13
-        ),
-    ),
-    trailing: Text(hora,style:GoogleFonts.comicNeue(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 12
-        ),
-    ), //é o mesm oque o leading soq no lado direito
-    
-  );
 }
