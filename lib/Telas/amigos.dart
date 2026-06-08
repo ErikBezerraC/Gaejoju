@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/db/conversas_dao.dart';
 import 'package:projetogaejoju/db/fake_database.dart';
+import 'package:projetogaejoju/domain/conversas.dart';
 import 'package:projetogaejoju/widget/container_conversas.dart';
 
 class Amigos extends StatefulWidget {
@@ -11,7 +13,18 @@ class Amigos extends StatefulWidget {
 }
 
 class _AmigosState extends State<Amigos> {
+  List<Conversas> listaConversas = [];
+
   @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    listaConversas = await ConversasDao().listarConversas();
+    setState(() {});
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
