@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projetogaejoju/db/conversas_dao.dart';
-import 'package:projetogaejoju/db/fake_database.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
 import 'package:projetogaejoju/widget/container_conversas.dart';
 
