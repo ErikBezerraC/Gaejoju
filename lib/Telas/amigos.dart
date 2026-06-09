@@ -84,10 +84,10 @@ class _AmigosState extends State<Amigos> {
       backgroundColor: Color(0xFF4F2B82),
       
       body: ListView.builder(
-        itemCount: FakeDatabase.listaConvervas.length,
+        itemCount: listaConversas.length,
 
         itemBuilder: (context,i){
-          return ContainerConversas(conversas: FakeDatabase.listaConvervas[i],);
+          return ContainerConversas(conversas: listaConversas[i],);
         },
       ),
     );
