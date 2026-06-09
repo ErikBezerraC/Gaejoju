@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/Telas/jogo.dart';
 import 'package:projetogaejoju/db/conversas_dao.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
 import 'package:projetogaejoju/widget/container_conversas.dart';
@@ -28,7 +29,7 @@ class _AmigosState extends State<Amigos> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF4F2B82),
-        toolbarHeight: 90, //aumenta o tamanho da app bar
+        toolbarHeight: 93, //aumenta o tamanho da app bar
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start, //para ir do começo do column
           children: [
@@ -43,8 +44,8 @@ class _AmigosState extends State<Amigos> {
                   ),
                 ),
 
-                SizedBox(width: 181,),
-                Icon(Icons.sports_esports_outlined, color: Colors.white, size:30),
+                SizedBox(width: 160,),
+                botaoJogo(context),
 
                 SizedBox(width: 25,),
                 Icon(Icons.person_add, color: Colors.white,size: 30),
@@ -91,4 +92,36 @@ class _AmigosState extends State<Amigos> {
       ),
     );
   }
+}
+
+botaoJogo(context){
+  return Container(
+
+    width: 50,
+    height: 48,
+
+    decoration: BoxDecoration(
+      color: Color(0xFFA770F4),
+      borderRadius: BorderRadius.circular(15),
+      border: Border.all(
+        color: Colors.deepPurple,
+        width: 3,
+      )
+    ),
+
+    child: Center(
+      child: IconButton(
+        icon: Icon(Icons.sports_esports_outlined, color: Colors.white, size:30),
+
+        onPressed: (){
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Jogo()
+              )
+          );
+        },
+      ),
+    )
+  );
 }
