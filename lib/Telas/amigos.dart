@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/Telas/adicionar_amigo.dart';
 import 'package:projetogaejoju/Telas/jogo.dart';
 import 'package:projetogaejoju/db/conversas_dao.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
+import 'package:projetogaejoju/widget/botao_amigos.dart';
 import 'package:projetogaejoju/widget/container_conversas.dart';
 
 class Amigos extends StatefulWidget {
@@ -44,11 +46,17 @@ class _AmigosState extends State<Amigos> {
                   ),
                 ),
 
-                SizedBox(width: 160,),
-                botaoJogo(context),
+                SizedBox(width: 130,),
+                BotaoAmigos(
+                  telaRetorno: Jogo(),
+                  icone: Icons.sports_esports_outlined,
+                ),
 
-                SizedBox(width: 25,),
-                Icon(Icons.person_add, color: Colors.white,size: 30),
+                SizedBox(width: 38,),
+                BotaoAmigos(
+                  telaRetorno: AdicionarAmigo(),
+                  icone: Icons.person_add,
+                )
               ],
             ),
 
@@ -92,36 +100,4 @@ class _AmigosState extends State<Amigos> {
       ),
     );
   }
-}
-
-botaoJogo(context){
-  return Container(
-
-    width: 50,
-    height: 48,
-
-    decoration: BoxDecoration(
-      color: Color(0xFFA770F4),
-      borderRadius: BorderRadius.circular(15),
-      border: Border.all(
-        color: Colors.deepPurple,
-        width: 3,
-      )
-    ),
-
-    child: Center(
-      child: IconButton(
-        icon: Icon(Icons.sports_esports_outlined, color: Colors.white, size:30),
-
-        onPressed: (){
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Jogo()
-              )
-          );
-        },
-      ),
-    )
-  );
 }
