@@ -3,7 +3,7 @@ import 'package:projetogaejoju/domain/perfis.dart';
 import 'package:sqflite/sqflite.dart';
 
 class PerfisDao {
-  Future<List<Perfis>> listarConversas() async {
+  Future<List<Perfis>> listarPerfis() async {
     // Acessando o Banco de Dados
     Database db = await DBHelper().initDB();
 
@@ -11,15 +11,15 @@ class PerfisDao {
     var listaResult = await db.rawQuery('SELECT * FROM PERFIS;');
 
     // Percorrer a lista de elementos
-    List<Perfis> listarConversas = [];
+    List<Perfis> listarPerfis = [];
     for (var json in listaResult) {
       // Criar a Conversas usando NamedConstructor
       Perfis perfis = Perfis.fromJson(json);
 
       // Add Propriedade na Lista
-      listarConversas.add(perfis);
+      listarPerfis.add(perfis);
     }
 
-    return listarConversas;
+    return listarPerfis;
   }
 }

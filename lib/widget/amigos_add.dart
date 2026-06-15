@@ -79,6 +79,6 @@ class _AmigosAddState extends State<AmigosAdd> {
             ),
           ],
         )
-    );;
+    );
   }
 }
