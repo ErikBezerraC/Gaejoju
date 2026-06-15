@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/widget/jogo_add.dart';
 
 class Jogo extends StatefulWidget {
   const Jogo({super.key});
@@ -14,6 +15,9 @@ class _JogoState extends State<Jogo> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF4F2B82),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
         flexibleSpace: Container( // flexibleSpace está sendo usado para colocar widgets personalizados dentro do app bar.
           child: Align(
             alignment: Alignment.bottomCenter,
@@ -36,80 +40,14 @@ class _JogoState extends State<Jogo> {
 
       backgroundColor: Color(0xFF4F2B82),
 
-      body: ListView(
-        children: [// chamando minha função.
-          buildContainer('Dia a dia do sr. Guará'),
-          buildContainer('Atravesse o Laguinho'),
-          buildContainer('Quem programa mais rápido?'),
-        ],
-      ),
+      body: ListView.builder(
+        itemCount: 4,
+        itemBuilder: (context,i) {
+          return JogoAdd(nome: 'joguinho',
+            urlImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrFLImfAnNxnQUyW-zhROVQulQTquZWhnG7Hu7dk7cw&s=10',);
+        }
+      )
 
     );
   }
-}
-
-buildContainer(String nome){
-  return Container(
-
-    color: Color(0xFFA770F4),
-
-    child: Column(
-      children: [
-
-        Container(
-          child: Text(nome,//retornando a variavel.
-            style: GoogleFonts.comicNeue(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-
-        SizedBox(height: 20,), //cria um espaçamento vertical 20 pixels.
-
-        Container(
-          height: 200, // define tamanho fixo.
-          width: double.infinity,//ocupa toda a largura disponível na horizontal.
-          child: Center(
-            child: Image.asset('assets/mascoteLoja/default.png',
-            height: 150,
-            fit: BoxFit.contain,  //caber inteira dentro do espaço disponível emanter a proporção original.
-            )
-          ),
-        ),
-
-        SizedBox(height: 20),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly, // deixa espaçamento igual antes, entre e depois.
-          children: [
-
-            ElevatedButton(
-              onPressed: () {},// define oq acontece quando o botão é pressionado. o botão não faz nada ainda mas continua clicável.
-              style: ElevatedButton.styleFrom(
-                //backgroundColor: Color(0xFFA770F4),
-              ),
-              child: Text('Jogar',
-                  style: GoogleFonts.comicNeue(
-                  color: Colors.white,
-                    fontSize: 20,
-              ),),
-            ),
-
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.amberAccent,
-              ),
-              child: Icon(Icons.emoji_events),
-            ),
-          ],
-        ),
-
-        SizedBox(height: 20),
-
-      ],
-    ),
-  );
 }
