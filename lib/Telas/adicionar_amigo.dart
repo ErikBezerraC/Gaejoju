@@ -29,6 +29,9 @@ class _AdicionarAmigoState extends State<AdicionarAmigo> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Color(0xFF4F2B82),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
         title: Column(
           children: [
 
