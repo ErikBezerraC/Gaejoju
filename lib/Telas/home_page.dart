@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projetogaejoju/amigos.dart';
-import 'package:projetogaejoju/aulas.dart';
-import 'package:projetogaejoju/mascote.dart';
-import 'package:projetogaejoju/profile.dart';
-import 'package:projetogaejoju/revisao.dart';
+import 'package:projetogaejoju/Telas/amigos.dart';
+import 'package:projetogaejoju/Telas/aulas.dart';
+import 'package:projetogaejoju/Telas/mascote.dart';
+import 'package:projetogaejoju/Telas/profile.dart';
+import 'package:projetogaejoju/Telas/revisao.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -42,11 +43,11 @@ class _HomePageState extends State<HomePage> {
           },
 
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Aulas'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Revisao'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Amigos'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Mascote'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Profile')
+            BottomNavigationBarItem(icon: Icon(Icons.desktop_windows), label: 'Aulas'),
+            BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Revisao'),
+            BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Amigos'),
+            BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.firefoxBrowser), label: 'Mascote'), //trocar no futuro por que é a mão
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined), label: 'Profile')
           ]),
 
     );
