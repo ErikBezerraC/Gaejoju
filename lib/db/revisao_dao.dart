@@ -8,7 +8,7 @@ class RevisaoDao {
     Database db = await DBHelper().initDB();
 
     // Executando uma Consulta SQL
-    var listaResult = await db.rawQuery('SELECT * FROM PERFIS;');
+    var listaResult = await db.rawQuery('SELECT * FROM REVISAO;');
 
     List<Revisao> listarrevisao = [];
     for (var json in listaResult) {
