@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projetogaejoju/domain/revision.dart';
+import 'package:projetogaejoju/domain/revisao.dart';
 class Containerrevisao extends StatefulWidget {
   const Containerrevisao({super.key});
 

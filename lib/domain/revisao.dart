@@ -1,11 +1,11 @@
-class Revision
+class Revisao
 {
   late String url;
   late String assunto;
 
-  Revision({required this.url, required this.assunto});
+  Revisao({required this.url, required this.assunto});
 
-  Revision.fromJson(Map<String, dynamic> json) {
+  Revisao.fromJson(Map<String, dynamic> json) {
     // id = json['id'];
     // avaliacao = json['avaliacao'];
     url = json['url'];

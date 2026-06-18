@@ -72,5 +72,33 @@ class DBHelper {
 
     sql = "INSERT INTO Perfis (url,nome) VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Wps67IeTq9oEjF8B0mEFMlXn2vWOZiep8g&s', 'Tyrion Lennister');";
     await db.execute(sql);
+
+    sql = ''' CREATE TABLE REVISAO (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT,
+            assunto TEXT,
+            botaoCaminho TEXT
+            
+        );''';
+    await db.execute(sql);
+
+    sql = "INSERT INTO REVISAO (url,assunto) VALUES ('assets/revisao/revisaoVariaveis.jpg', 'VARIÁVEIS');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO REVISAO (url,assunto) VALUES ('assets/revisao/revisaoVariaveis.jpg', 'OPERAÇÕES');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO REVISAO (url,assunto) VALUES ('assets/revisao/revisaoVariaveis.jpg', 'CONDIÇÃO');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO REVISAO (url,assunto) VALUES ('assets/revisao/revisaoVariaveis.jpg', 'REPETIÇÃO');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO REVISAO (url,assunto) VALUES ('assets/revisao/revisaoVariaveis.jpg', 'FUNÇÃO');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO REVISAO (url,assunto) VALUES ('assets/revisao/revisaoVariaveis.jpg', 'BIBLIOTECAS');";
+    await db.execute(sql);
+
   }
 }

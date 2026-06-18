@@ -1,4 +1,4 @@
-import 'package:projetogaejoju/domain/revision.dart';
+import 'package:projetogaejoju/domain/revisao.dart';
 class FakeDbRev {
 
   static List lista=[
