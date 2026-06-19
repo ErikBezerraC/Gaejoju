@@ -52,5 +52,16 @@ class DBHelper {
 
     sql = "INSERT INTO Conversas (img,nome,msg,hora) VALUES ('https://pbs.twimg.com/media/El7bWkMXgAE-lwV.jpg', 'Perseu Jackson', 'Eu não sou loiro burro', '14:51');";
     await db.execute(sql);
+
+    //banco de jogos
+    String sqlJogo = ''' CREATE TABLE JOGO (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nome TEXT NOT NULL,
+      urlImg TEXT NOT NULL
+    );''';
+    await db.execute(sqlJogo);
+
+    await db.execute("INSERT INTO JOGO (nome, urlImg) VALUES ('Jogo da Cobrinha', 'https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=500');");
+    await db.execute("INSERT INTO JOGO (nome, urlImg) VALUES ('Space Invaders', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500');");
   }
 }
