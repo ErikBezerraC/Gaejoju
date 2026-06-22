@@ -1,20 +1,17 @@
 import 'dart:async';
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBHelper {
   // await -> async e Future<TipoDeRetorno>
   Future<Database> initDB() async {
-    // Onde salvar o Banco de Dados
+    // Onde salvar o Banco de Dados no cll do usuário
     // C:/database/name
     String path = await getDatabasesPath();
     // Nome do banco
     String dbName = 'duocode.db';
-
     // Path do Banco de Dados + Nome do Banco
     String dbPath = join(path, dbName);
-
     // Criar e/ou Abrir o Banco de Dados
     Database db = await openDatabase(dbPath, version: 1, onCreate: onCreateDB);
 
@@ -59,9 +56,20 @@ class DBHelper {
       nome TEXT NOT NULL,
       urlImg TEXT NOT NULL
     );''';
+
     await db.execute(sqlJogo);
 
-    await db.execute("INSERT INTO JOGO (nome, urlImg) VALUES ('Jogo da Cobrinha', 'https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=500');");
-    await db.execute("INSERT INTO JOGO (nome, urlImg) VALUES ('Space Invaders', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500');");
+    sqlJogo = "INSERT INTO JOGO (nome, urlImg) VALUES ('Dia a dia do Sr. Guará', 'assets/revisao/revisaoVariaveis.jpg');";
+    await db.execute(sqlJogo);
+
+    sqlJogo = "INSERT INTO JOGO (nome, urlImg) VALUES ('Atravesse o Laguinho', 'assets/revisao/revisaoVariaveis.jpg');";
+    await db.execute(sqlJogo);
+
+    sqlJogo = "INSERT INTO JOGO (nome, urlImg) VALUES ('Tetris e Identação!?', 'assets/revisao/revisaoVariaveis.jpg');";
+    await db.execute(sqlJogo);
+
+    sqlJogo = "INSERT INTO JOGO (nome, urlImg) VALUES ('Lobinho Ligeiro?', 'assets/revisao/revisaoVariaveis.jpg');";
+    await db.execute(sqlJogo);
+
   }
 }

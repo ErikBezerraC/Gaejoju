@@ -1,5 +1,5 @@
-import 'package:aula_923/db/db_helper.dart';
-import 'package:projetogaejoju/domain/jogo.dart'; // Ajuste para a sua pasta do modelo
+import 'package:projetogaejoju/db/db_helper.dart';
+import 'package:projetogaejoju/domain/jogo.dart';
 import 'package:sqflite/sqflite.dart';
 
 class JogoDao {

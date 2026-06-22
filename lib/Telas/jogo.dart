@@ -1,15 +1,34 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/domain/jogo.dart';
+import 'package:projetogaejoju/db/jogo_dao.dart';
 import 'package:projetogaejoju/widget/jogo_add.dart';
 
-class Jogo extends StatefulWidget {
-  const Jogo({super.key});
+class Jogos extends StatefulWidget {
+  const Jogos({super.key});
 
   @override
-  State<Jogo> createState() => _JogoState();
+  State<Jogos> createState() => _JogoState();
 }
 
-class _JogoState extends State<Jogo> {
+class _JogoState extends State<Jogos> {
+
+
+  List<Jogo> listaJogos = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  Future<void> loadData() async {
+    // Buscamos direto para a sua variável listaJogos
+    listaJogos = await JogoDao().listarJogos();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,13 +59,17 @@ class _JogoState extends State<Jogo> {
 
       backgroundColor: Color(0xFF4F2B82),
 
-      body: ListView.builder(
-        itemCount: 4,
-        itemBuilder: (context,i) {
-          return JogoAdd(nome: 'joguinho',
-            urlImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrFLImfAnNxnQUyW-zhROVQulQTquZWhnG7Hu7dk7cw&s=10',);
-        }
+      body: listaJogos.isEmpty
+          ? const Center(
+        child: CircularProgressIndicator(color: Colors.white),
       )
+          : ListView.builder(
+        itemCount: listaJogos.length, // Usa o tamanho real da sua lista
+        itemBuilder: (context, i) {
+          // Passa o item direto da sua listaJogos usando o índice [i]
+          return JogoAdd(jogo: listaJogos[i]);
+        },
+      ),
 
     );
   }

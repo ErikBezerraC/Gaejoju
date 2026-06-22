@@ -117,7 +117,7 @@ botaoJogo(context){
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Jogo()
+                  builder: (context) => Jogos()
               )
           );
         },

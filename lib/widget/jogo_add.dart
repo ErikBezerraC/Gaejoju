@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/domain/jogo.dart';
+
+
 
 class JogoAdd extends StatefulWidget {
 
-  String urlImg;
-  String nome;
+  final Jogo jogo;
 
-
-  JogoAdd({super.key, required this.urlImg, required this.nome});
+  JogoAdd({super.key, required this.jogo});
 
   @override
   State<JogoAdd> createState() => _JogoAddState();
@@ -54,7 +55,7 @@ class _JogoAddState extends State<JogoAdd> {
             ),
 
               child: Center(
-                child: Text(widget.nome,//retornando a variavel.
+                child: Text(widget.jogo.nome,//retornando a variavel.
                   style: GoogleFonts.comicNeue(
                     color: Colors.white,
                     fontSize: 25,
@@ -70,9 +71,9 @@ class _JogoAddState extends State<JogoAdd> {
               height: 200, // define tamanho fixo.
               width: double.infinity,//ocupa toda a largura disponível na horizontal.
               child: Center(
-                  child: Image.asset('assets/jogos/jogoCobrinha.jpg',
+                  child: Image.asset(widget.jogo.urlImg,
                     height: 150,
-                    width: 600,
+                    width: 400,
                     fit: BoxFit.contain, //caber inteira dentro do espaço disponível emanter a proporção original.
                   )
               ),
