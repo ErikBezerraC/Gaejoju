@@ -8,7 +8,7 @@ class BotaoPrincipal extends StatelessWidget{
   BotaoPrincipal({
     super.key,
     this.onTap,
-    this.icone = Icons.star_border_outlined,
+    required this.icone,
     this.cor = const Color(0xFF8D55DD),
   });
 

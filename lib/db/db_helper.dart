@@ -10,7 +10,7 @@ class DBHelper {
     // C:/database/name
     String path = await getDatabasesPath();
     // Nome do banco
-    String dbName = 'duocodeee.db';
+    String dbName = 'duocodeeee.db';
 
     // Path do Banco de Dados + Nome do Banco
     String dbPath = join(path, dbName);
@@ -58,8 +58,8 @@ class DBHelper {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
     imagem TEXT NOT NULL,
-    totalFases INTEGER DEFAULT 3,
-    fasesConcluidas TEXT DEFAULT '[false, false, false]'
+    totalFases INTEGER DEFAULT 5,
+    fasesConcluidas TEXT DEFAULT '[false, false, false, false, false]'
   )
 ''');
 

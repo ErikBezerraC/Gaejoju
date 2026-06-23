@@ -3,10 +3,10 @@ import 'package:projetogaejoju/widget/botao_aula.dart';
 import 'package:projetogaejoju/domain/aulas.dart';
 
 class ArvoreAula extends StatefulWidget {
-  Aula aula;
-  VoidCallback? onBotaoPrincipalTap;
+  final Aula aula;
+  final VoidCallback? onBotaoPrincipalTap;
 
-  ArvoreAula({
+  const ArvoreAula({
     super.key,
     required this.aula,
     this.onBotaoPrincipalTap,
@@ -17,87 +17,86 @@ class ArvoreAula extends StatefulWidget {
 }
 
 class _ArvoreAulaState extends State<ArvoreAula> {
+  late List<bool> fases;
+
+  @override
+  void initState() {
+    super.initState();
+    fases = widget.aula.listaFasesConcluidas;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final fasesConcluidas = int.tryParse(widget.aula.fasesConcluidas) ?? 0;
-    final fases = fasesConcluidas >= 3
-        ? [true, true, true] // ajuste conforme sua lógica
-        : [false, false, false];
-
     return Container(
       width: 380,
       height: 830,
-
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(widget.aula.imagem), fit: BoxFit.cover),
+        image: DecorationImage(
+          image: AssetImage(widget.aula.imagem),
+          fit: BoxFit.cover,
+        ),
       ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const SizedBox(height: 40),
 
-      child: Column(children: [
-        const SizedBox(height: 40),
+          BotaoPrincipal(
+            onTap: () {
+              setState(() {
+                fases[0] = !fases[0];
+              });
+            },
+            icone: fases[0]
+                ? Icons.star
+                : Icons.star_border_outlined,
+          ),
 
-        BotaoPrincipal(),
+          BotaoFase(
+            onTap: () {
+              setState(() {
+                fases[1] = !fases[1];
+              });
+            },
+            icone: fases[1]
+                ? Icons.star
+                : Icons.star_border_outlined,
+          ),
 
-        BotaoFase(
-          onTap: () {
-            setState(() {
-              fases[0] = !fases[0];
-            });
-          },
-          icone: fases[0]
-              ? Icons.star
-              : Icons.star_border_outlined,
-        ),
+          BotaoFase(
+            onTap: () {
+              setState(() {
+                fases[2] = !fases[2];
+              });
+            },
+            icone: fases[2]
+                ? Icons.star
+                : Icons.star_border_outlined,
+          ),
 
-        BotaoFase(
-          onTap: () {
-            setState(() {
-              fases[1] = !fases[1];
-            });
-          },
-          icone: fases[1]
-              ? Icons.star
-              : Icons.star_border_outlined,
-        ),
+          BotaoFase(
+            onTap: () {
+              setState(() {
+                fases[3] = !fases[3];
+              });
+            },
+            icone: fases[3]
+                ? Icons.star
+                : Icons.star_border_outlined,
+          ),
 
-        BotaoFase(
-          onTap: fases[2] ? () {} : null,
-          icone: fases[2]
-              ? Icons.star
-              : Icons.star_border_outlined,
-        ),
-
-        BotaoPrincipal(),
-      ],
+          BotaoPrincipal(
+            onTap: () {
+              setState(() {
+                fases[4] = !fases[4];
+              });
+            },
+            icone: fases[4]
+                ? Icons.star
+                : Icons.star_border_outlined,
+          ),
+        ],
       ),
     );
   }
-}
-
-containerTraco(){
-  return Container(
-      child: Column(
-          children: [
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-          ]
-      )
-  );
 }
