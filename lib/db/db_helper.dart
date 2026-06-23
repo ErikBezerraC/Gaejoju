@@ -52,5 +52,23 @@ class DBHelper {
 
     sql = "INSERT INTO Conversas (img,nome,msg,hora) VALUES ('https://pbs.twimg.com/media/El7bWkMXgAE-lwV.jpg', 'Perseu Jackson', 'Eu não sou loiro burro', '14:51');";
     await db.execute(sql);
+
+    await db.execute('''
+    CREATE TABLE AULAS (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    imagem TEXT NOT NULL,
+    totalFases INTEGER DEFAULT 3,
+    fasesConcluidas TEXT DEFAULT '[false, false, false]'
+  )
+''');
+
+    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Variaveis', 'assets/aulas/backgroundVariaveis.png');";
+    await db.execute(sql);
+    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Operacoes', 'assets/aulas/backgroundVariaveisContinuando.png';";
+    await db.execute(sql);
+    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Condicoes', 'backgroundVariaveisContinuando.png');";
+    await db.execute(sql);
+
   }
 }

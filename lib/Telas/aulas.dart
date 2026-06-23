@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:projetogaejoju/widget/arvorebotao_aula.dart';
 import 'package:projetogaejoju/widget/ofensiva.dart';
+import 'package:projetogaejoju/domain/aulas.dart';
+import 'package:projetogaejoju/db/aulas_dao.dart';
+
 
 class Aulas extends StatefulWidget {
   const Aulas({super.key});
@@ -9,7 +14,18 @@ class Aulas extends StatefulWidget {
 }
 
 class _AulasState extends State<Aulas> {
+  List <Aula> listaAulas = [];
   @override
+  void initState(){
+    super.initState();
+    loadData();
+  }
+
+  loadData() async{
+    listaAulas = await AulaDao().listarAulas();
+    setState(() {});
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(
       backgroundColor: Color(0xFF4F2B82),
@@ -49,101 +65,12 @@ class _AulasState extends State<Aulas> {
       ),
     ),
       backgroundColor: Color(0xFF4F2B82),
-      body:  ListView(
-        children: [
-          Column(
-            children: [
-              containerAula(url:'assets/aulas/backgroundVariaveis.png'),
-              containerAula(url: 'assets/aulas/backgroundVariaveisContinuando.png'),
-              containerAula(url: 'assets/aulas/backgroundVariaveisContinuando.png'),
-            ],
-          ),
-        ],
-      ),
+      body:  ListView.builder(
+        itemCount: listaAulas.length,
+        itemBuilder: (context,i){
+          return ArvoreAula(aula: listaAulas[i],);
+        }
+        ),
     );
   }
-}
-containerBotaofase(){
-  return Container(
-    width: 70,
-    height: 70,
-    decoration: BoxDecoration(
-      color: Colors.deepPurple,
-      shape: BoxShape.circle,
-    ),
-
-    child: Center(
-      child: Icon(Icons.star_border_outlined, size: 30,color: Colors.white,),
-    ),
-
-  );
-}
-containerBotao(){
-  return Container(
-    width: 100,
-    height: 100,
-    decoration: BoxDecoration(
-      color: Color(0xFF8D55DD),
-      shape: BoxShape.circle,
-    ),
-
-    child: Center(
-      child: Icon(Icons.star_border_outlined, size: 45,color: Colors.white,),
-    ),
-  );
-}
-containerTraco(){
-  return Container(
-      child: Column(
-          children: [
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-            Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
-          ]
-      )
-  );
-}
-containerAula({required String url}){
-  return Container(
-    width: 380,
-    height: 830,
-
-    decoration: BoxDecoration(
-      image: DecorationImage(image: AssetImage(url), fit: BoxFit.cover),
-    ),
-
-    child: Column(children: [
-              SizedBox(
-                height: 40,
-              ),
-              containerBotao(),
-              containerTraco(),
-              containerBotaofase(),
-              containerTraco(),
-              containerBotaofase(),
-              containerTraco(),
-              containerBotaofase(),
-              containerTraco(),
-              containerBotao()
-
-            ],
-            ),
-  );
 }
