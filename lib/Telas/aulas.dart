@@ -23,6 +23,7 @@ class _AulasState extends State<Aulas> {
 
   loadData() async{
     listaAulas = await AulaDao().listarAulas();
+    print('Quantidade de aulas: ${listaAulas.length}');
     setState(() {});
   }
 

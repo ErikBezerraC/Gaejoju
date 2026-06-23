@@ -10,7 +10,7 @@ class DBHelper {
     // C:/database/name
     String path = await getDatabasesPath();
     // Nome do banco
-    String dbName = 'duocode.db';
+    String dbName = 'duocodeee.db';
 
     // Path do Banco de Dados + Nome do Banco
     String dbPath = join(path, dbName);
@@ -65,9 +65,9 @@ class DBHelper {
 
     sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Variaveis', 'assets/aulas/backgroundVariaveis.png');";
     await db.execute(sql);
-    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Operacoes', 'assets/aulas/backgroundVariaveisContinuando.png';";
+    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Operacoes', 'assets/aulas/backgroundVariaveisContinuando.png');";
     await db.execute(sql);
-    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Condicoes', 'backgroundVariaveisContinuando.png');";
+    sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Condicoes', 'assets/aulas/backgroundVariaveisContinuando.png');";
     await db.execute(sql);
 
   }

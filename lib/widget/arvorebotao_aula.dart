@@ -24,7 +24,52 @@ class _ArvoreAulaState extends State<ArvoreAula> {
         ? [true, true, true] // ajuste conforme sua lógica
         : [false, false, false];
 
-    return containerAula(aula: widget.aula);
+    return Container(
+      width: 380,
+      height: 830,
+
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(widget.aula.imagem), fit: BoxFit.cover),
+      ),
+
+      child: Column(children: [
+        const SizedBox(height: 40),
+
+        BotaoPrincipal(),
+
+        BotaoFase(
+          onTap: () {
+            setState(() {
+              fases[0] = !fases[0];
+            });
+          },
+          icone: fases[0]
+              ? Icons.star
+              : Icons.star_border_outlined,
+        ),
+
+        BotaoFase(
+          onTap: () {
+            setState(() {
+              fases[1] = !fases[1];
+            });
+          },
+          icone: fases[1]
+              ? Icons.star
+              : Icons.star_border_outlined,
+        ),
+
+        BotaoFase(
+          onTap: fases[2] ? () {} : null,
+          icone: fases[2]
+              ? Icons.star
+              : Icons.star_border_outlined,
+        ),
+
+        BotaoPrincipal(),
+      ],
+      ),
+    );
   }
 }
 
@@ -54,49 +99,5 @@ containerTraco(){
             Text('|', style: TextStyle(color: Colors.white, fontSize: 2)),
           ]
       )
-  );
-}
-containerAula({required Aula aula}){
-  return Container(
-    width: 380,
-    height: 830,
-
-    decoration: BoxDecoration(
-      image: DecorationImage(image: AssetImage(aula.imagem), fit: BoxFit.cover),
-    ),
-
-    child: Column(children: [
-      const SizedBox(height: 40),
-
-      BotaoPrincipal(
-        onTap: widget.onBotaoPrincipalTap,
-      ),
-
-      BotaoFase(
-        onTap: fases[0] ? () {} : null,
-        icone: fases[0]
-            ? Icons.star
-            : Icons.star_border_outlined,
-      ),
-
-      BotaoFase(
-        onTap: fases[1] ? () {} : null,
-        icone: fases[1]
-            ? Icons.star
-            : Icons.star_border_outlined,
-      ),
-
-      BotaoFase(
-        onTap: fases[2] ? () {} : null,
-        icone: fases[2]
-            ? Icons.star
-            : Icons.star_border_outlined,
-      ),
-
-      BotaoPrincipal(
-        onTap: widget.onBotaoPrincipalTap,
-      ),
-    ],
-    ),
   );
 }
