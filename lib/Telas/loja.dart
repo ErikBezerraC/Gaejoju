@@ -13,10 +13,13 @@ class _LojaState extends State<Loja> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          ),
           backgroundColor: Color(0xFF4F2B82),
           title: Container(
               height: 45,
-              width: 400,
+              width: 430,
               decoration: BoxDecoration(
                   color: Color(0xFFA770F4),
                   borderRadius: BorderRadius.circular(15)
@@ -24,9 +27,7 @@ class _LojaState extends State<Loja> {
               child:
               Row(
                 children: [
-                  SizedBox(height: 5, width: 8,),
-                  Icon(Icons.arrow_back, color: Colors.white, size: 28),
-                  SizedBox(width: 120,),
+                  SizedBox(width: 95,),
                   Text('LOJA', style: GoogleFonts.comicNeue(color: Colors.white, fontSize: 28, fontWeight:  FontWeight.bold,),
                   ),
                   SizedBox(width: 60,),
