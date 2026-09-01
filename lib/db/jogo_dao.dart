@@ -19,7 +19,7 @@ class JogoDao {
       // Add Jogo na Lista
       listaJogos.add(jogo);
     }
-
+    await Future.delayed(Duration(seconds: 5));
     return listaJogos;
   }
 }
