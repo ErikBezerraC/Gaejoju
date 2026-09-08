@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   List pages = [
     Aulas(),
-    Revisao(),
+    Revisar(),
     Amigos(),
     Mascote(),
     Profile()

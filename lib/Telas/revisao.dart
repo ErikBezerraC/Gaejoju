@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/db/revisao_dao.dart';
+import 'package:projetogaejoju/widget/revisao_buttom.dart';
+import 'variaveis_revisao.dart';
+import 'package:projetogaejoju/domain/revisao.dart';
+import '';
 
-class Revisao extends StatefulWidget {
-  const Revisao({super.key});
+class Revisar extends StatefulWidget {
+  const Revisar({super.key});
 
   @override
-  State<Revisao> createState() => _RevisaoState();
+  State<Revisar> createState() => _RevisarState();
 }
 
-class _RevisaoState extends State<Revisao> {
+class _RevisarState extends State<Revisar> {
+  List<Revisao> listarrevisao = [];
+
   @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    listarrevisao = await RevisaoDao().listarrevisao();
+    setState(() {});
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -57,52 +73,15 @@ class _RevisaoState extends State<Revisao> {
 
         ),
         backgroundColor: Color(0xFF4F2B82),
-        body: Padding(padding:
-        EdgeInsets.only(
-          top: 30,
-          left: 20,
-          right: 20,
-          bottom: 0, //alterando as bordas
-        ),
-          child: SingleChildScrollView(
-            child:Column(
-            children: [ //adiciona um espaço entre os containers
-              buildContainer(assunto: 'VARIÁVEIS', url: 'assets/revisao/revisaoVariaveis.jpg'),
-              SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'OPERAÇÕES ',url: 'assets/revisao/revisaoVariaveis.jpg'),
-              SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'CONDIÇÃO',url: 'assets/revisao/revisaoVariaveis.jpg'),
-              SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'REPETIÇÃO',url: 'assets/revisao/revisaoVariaveis.jpg'),
-              SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'FUNÇÃO',url: 'assets/revisao/revisaoVariaveis.jpg'),
-              SizedBox(height: 20), //adiciona um espaço entre os containers
-              buildContainer(assunto: 'BIBLIOTECAS',url: 'assets/revisao/revisaoVariaveis.jpg')
-            ],
-            )
-          ),
-        ),
+        body: ListView.builder(
+        itemCount: listarrevisao.length,
+          itemBuilder: (context,i){
+          return RevisaoButtom(revisao: listarrevisao[i],);
+          },
+
+
+        )
     );
   }
 }
 
-buildContainer({required String assunto, required String url}){
-  return Container(
-    width: 350,
-    height: 100, //tamanho do container
-    decoration: BoxDecoration( //adicionando cor de fundo
-      borderRadius: BorderRadius.circular(8), //arredondando as bordas
-      image: DecorationImage(
-          image: AssetImage(url),
-          fit: BoxFit.cover, //cobre o container inteiro
-      ),
-    ),
-    
-    child: Center(
-        child: Text(assunto,
-          style: GoogleFonts.comicNeue(
-            color: Colors.white,
-            fontSize: 30,
-            fontWeight: FontWeight.bold))),
-  );
-}
