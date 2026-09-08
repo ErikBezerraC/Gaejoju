@@ -14,6 +14,7 @@ class _LoginState extends State<Login> {
   SharedPrefs prefs = SharedPrefs();
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -57,7 +58,9 @@ class _LoginState extends State<Login> {
                 onPressed: onPressed,
                 child: Text(
                   'Entrar',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
+                  style: TextStyle(color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16),
                 ),
               ),
               ElevatedButton(
@@ -83,43 +86,43 @@ class _LoginState extends State<Login> {
       ),
     );
   }
-}
 
 
-onPressed() async {
-  String username = userController.text;
-  String password = passwordController.text;
+  onPressed() async {
+    String username = userController.text;
+    String password = passwordController.text;
 
-  bool isAuth = await PerfisDao().login(username, password);
+    bool isAuth = await PerfisDao().login(username, password);
 
-  // if (user == 'joao@gmail.com' && password == '123456') {
+    // if (user == 'joao@gmail.com' && password == '123456') {
 
-  if (isAuth) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return HomePage();
-        },
-      ),
-    );
+    if (isAuth) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomePage();
+          },
+        ),
+      );
 
-    prefs.setUserStatus(true);
-  } else {
-    print('User e/ou password incorretos');
+      prefs.setUserStatus(true);
+    } else {
+      print('User e/ou password incorretos');
+    }
   }
-}
 
-buildPasswordOutlineInputBorder() {
-  return OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.grey),
-    borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
-  );
-}
+  buildPasswordOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.grey),
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
+    );
+  }
 
-buildUserOutlineInputBorder() {
-  return OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.grey),
-    borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
-  );
+  buildUserOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.grey),
+      borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+    );
+  }
 }
