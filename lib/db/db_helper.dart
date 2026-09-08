@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -13,6 +14,7 @@ class DBHelper {
 
     // Path do Banco de Dados + Nome do Banco
     String dbPath = join(path, dbName);
+
     // Criar e/ou Abrir o Banco de Dados
     Database db = await openDatabase(dbPath, version: 1, onCreate: onCreateDB);
 
@@ -90,5 +92,25 @@ class DBHelper {
     sql = "INSERT INTO aulas (titulo,imagem) VALUES ('Condicoes', 'assets/aulas/backgroundVariaveisContinuando.png');";
     await db.execute(sql);
 
+
+    sql = ''' CREATE TABLE PERFIS (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT,
+            nome TEXT
+            
+        );''';
+    await db.execute(sql);
+
+    sql = "INSERT INTO Perfis (url,nome) VALUES ('https://i.pinimg.com/736x/8c/b4/59/8cb459dcd8218ceb289b7b1de6d04c45.jpg', 'Daenerys Targaryen');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO Perfis (url,nome) VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA2hajpX0G9SkqLHY0mrgJqEq0vSGJg6_d7w&s', 'Jon Snow');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO Perfis (url,nome) VALUES ('https://static.wikia.nocookie.net/gameofthrones/images/6/63/QueenSansa.PNG/revision/latest/thumbnail/width/360/height/450?cb=20210215100224', 'Sansa Stark');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO Perfis (url,nome) VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Wps67IeTq9oEjF8B0mEFMlXn2vWOZiep8g&s', 'Tyrion Lennister');";
+    await db.execute(sql);
   }
 }

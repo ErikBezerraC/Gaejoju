@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/Telas/loja.dart';
 
 class Mascote extends StatefulWidget {
   const Mascote({super.key});
@@ -35,7 +36,7 @@ class _MascoteState extends State<Mascote> {
         ),
       ),
       backgroundColor: Color(0xFF4F2B82),
-      body: containerMascote(),
+      body: containerMascote(context),
     );
   }
 }
@@ -54,7 +55,7 @@ containerQuadrados({required String url}){
 
   );
 }
-containerBackmascote(){
+containerBackmascote(BuildContext context){
   return Container(
     height: 430,
     width: 360,
@@ -76,22 +77,35 @@ containerBackmascote(){
         Align(
           alignment: Alignment.centerRight,
           child: Container(
-            height: 60,
+
             width: 60,
-            margin: EdgeInsets.only(right: 10),
+            height: 60,
+
             decoration: BoxDecoration(
               color: Colors.amber,
               borderRadius: BorderRadius.circular(15),
               border: Border.all(color: Colors.yellow, width: 5),
             ),
+
             child: Center(
-              child: Icon(Icons.shopping_cart_sharp,
+              child: IconButton(
+                icon: Icon(Icons.shopping_cart_sharp,
                   color: Colors.white, size: 33),
+
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => Loja(),
+                    )
+                  );
+                },
+              ),
             ),
-          ),
-        ),
-      ],
-    ),
+  ),
+  )
+  ],
+  ),
   );
 }
 containerArmariotitulo(){
@@ -203,7 +217,7 @@ containerArmario(){
     ),
   );
 }
-containerMascote(){
+containerMascote(BuildContext context){
   return Container(
       child: Center(
           child:
@@ -212,7 +226,7 @@ containerMascote(){
                 SizedBox(
                   height: 20,
                 ),
-                containerBackmascote(),
+                containerBackmascote(context),
                 containerArmariotitulo(),
                 containerArmario()
               ]
