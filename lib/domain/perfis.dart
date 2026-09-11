@@ -12,6 +12,8 @@ class Perfis {
     // avaliacao = json['avaliacao'];
     url = json['url'];
     nome = json['nome'];
+    password = json['password'];
+    email = json['email'];
   }
 
   Map<String, dynamic> toJson() {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projetogaejoju/Telas/home_page.dart';
 import 'package:projetogaejoju/db/perfis_dao.dart';
 import 'package:projetogaejoju/db/shared_prefs.dart';
+import 'package:projetogaejoju/api/perfil_api.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -89,14 +90,14 @@ class _LoginState extends State<Login> {
 
 
   onPressed() async {
-    String username = userController.text;
+    String email = userController.text;
     String password = passwordController.text;
 
-    bool isAuth = await PerfisDao().login(username, password);
-
-    // if (user == 'joao@gmail.com' && password == '123456') {
+    bool isAuth = await PerfilApi().login(email, password);
 
     if (isAuth) {
+      await prefs.setUserStatus(true);
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -105,10 +106,8 @@ class _LoginState extends State<Login> {
           },
         ),
       );
-
-      prefs.setUserStatus(true);
     } else {
-      print('User e/ou password incorretos');
+      print('Usuário e/ou senha incorretos');
     }
   }
 

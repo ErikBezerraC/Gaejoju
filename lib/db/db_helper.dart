@@ -96,12 +96,14 @@ class DBHelper {
     sql = ''' CREATE TABLE PERFIS (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             url TEXT,
-            nome TEXT
+            nome TEXT,
+            password TEXT,
+            email TEXT
             
         );''';
     await db.execute(sql);
 
-    sql = "INSERT INTO Perfis (url,nome) VALUES ('https://i.pinimg.com/736x/8c/b4/59/8cb459dcd8218ceb289b7b1de6d04c45.jpg', 'Daenerys Targaryen');";
+    sql = "INSERT INTO Perfis (url,nome, password, email) VALUES ('https://i.pinimg.com/736x/8c/b4/59/8cb459dcd8218ceb289b7b1de6d04c45.jpg', 'Daenerys Targaryen', 'Drogon', 'DanyRainha@gmail.com');";
     await db.execute(sql);
 
     sql = "INSERT INTO Perfis (url,nome) VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA2hajpX0G9SkqLHY0mrgJqEq0vSGJg6_d7w&s', 'Jon Snow');";

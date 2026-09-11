@@ -3,12 +3,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPrefs {
   Future<void> setUserStatus(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('USER', value);
+    await prefs.setBool('PERFIS', value);
   }
 
   Future<bool> getUserStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool? status = prefs.getBool('USER');
+    bool? status = prefs.getBool('PERFIS');
 
     // if (status == null) {
     //   return false;
