@@ -4,12 +4,15 @@ import 'package:dio/dio.dart';
 class AddressApi {
   final dio = Dio();
 
-  Future<Address0> findByCep(String cep) async {
+  Future<Address> showCats(String cat) async {
     late Address address;
-    final response = await dio.get('https://emojihub.yurace.pro/api/random');
+
+    // retorna imagem: final response = await dio.get('https://cataas.com/cat');
+    //retorna json:
+    final response = await dio.get('https://cataas.com/cat?json=true');
 
     if (response.statusCode == 200) {
-      address = Address.fromJson(response.data);
+      Address.fromJson(response.data);
     }
 
     return address;

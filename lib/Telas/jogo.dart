@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/api/address_api.dart';
 import 'package:projetogaejoju/domain/jogo.dart';
+import 'package:projetogaejoju/domain/Address.dart';
 import 'package:projetogaejoju/db/jogo_dao.dart';
 import 'package:projetogaejoju/widget/jogo_add.dart';
-
-import '../db/jogo_dao.dart';
 
 class Jogos extends StatefulWidget {
   const Jogos({super.key});
@@ -14,45 +14,49 @@ class Jogos extends StatefulWidget {
 }
 
 class _JogoState extends State<Jogos> {
-  List<Jogo> listaJogos = [];
-  late Future<List<Jogos>> futureLista; //
+  late Future<List<Jogo>> futureLista;
+
+  //interrogação pois o valor pode ser nulo
+  Cat? gato;
 
   @override
   void initState() {
     super.initState();
-    futureLista = JogoDao().listarJogos();
-  }
-  //loadData();
 
-  Future<void> loadData() async {
-    // Buscamos direto para a sua variável listaJogos
-    listaJogos = await JogoDao().listarJogos();
-    setState(() {});
+    futureLista = JogoDao().listarJogos();
+
+
+  }
+
+  Future<void> mostrarGato() async {
+    final resultado = await AddressApi().showCats('');
+
+    setState(() {
+      gato = resultado;
+    });
+
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF4F2B82),
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: const Color(0xFF4F2B82),
+        iconTheme: const IconThemeData(color: Colors.white),
         flexibleSpace: Container(
-          // flexibleSpace está sendo usado para colocar widgets personalizados dentro do app bar.
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 60,
               width: 362,
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 horizontal: 15,
                 vertical: 13,
-              ), //edgeinsets usado para colocar a borda sem precisar colocar um valor para cada lado.
+              ),
               decoration: BoxDecoration(
-                //decoration é uma propriedade do widget Container usada ara decoralo.
-                color: Color(0xFFA770F4),
-                borderRadius: BorderRadius.circular(
-                  15,
-                ), //box decoration pra deixar circular
+                color: const Color(0xFFA770F4),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
                 child: Text(
@@ -69,26 +73,65 @@ class _JogoState extends State<Jogos> {
         ),
       ),
 
-      backgroundColor: Color(0xFF4F2B82),
+      backgroundColor: const Color(0xFF4F2B82),
 
-      body: FutureBuilder(
-        future: futureLista,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            List listaJogos = snapshot.requireData;
+      body: Column(
+        children: [
 
-            return ListView.builder(
-              itemCount: listaJogos.length, // Usa o tamanho real da sua lista
-              itemBuilder: (context, i) {
-                // Passa o item direto da sua listaJogos usando o índice [i]
-                return JogoAdd(jogo: listaJogos[i]);
+          // Lista de jogos
+          Expanded(
+            child: FutureBuilder(
+              future: futureLista,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List listaJogos = snapshot.requireData;
+
+                  return ListView.builder(
+                    itemCount: listaJogos.length,
+                    itemBuilder: (context, i) {
+                      return JogoAdd(
+                        jogo: listaJogos[i],
+                      );
+                    },
+                  );
+                }
+
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
               },
-            );
-          }
+            ),
+          ),
 
-          return Center(child: CircularProgressIndicator());
-        },
+          // Gatinho no final
+          if (gato != null)
+            Image.network(
+              'https://cataas.com${gato!.url}',
+              height: 150,
+              width: 150,
+              fit: BoxFit.cover,
+            ),
+
+          // Botão
+          TextButton.icon(
+            onPressed: mostrarGato,
+            icon: const Icon(
+              Icons.search,
+              size: 18,
+              color: Colors.white70,
+            ),
+            label: const Text(
+              'gatinho',
+              style: TextStyle(
+                color: Colors.white70,
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ],
       ),
     );
+
+
   }
 }
