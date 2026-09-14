@@ -22,7 +22,7 @@ class _AdicionarAmigoState extends State<AdicionarAmigo> {
   }
 
   loadData() async {
-    listaPerfis = await PerfisDao().listarPerfis();
+    //listaPerfis = await PerfisDao().listarPerfis();
     setState(() {});
   }
   Widget build(BuildContext context) {

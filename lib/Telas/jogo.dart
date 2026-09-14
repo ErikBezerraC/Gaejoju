@@ -20,7 +20,7 @@ class _JogoState extends State<Jogos> {
   @override
   void initState() {
     super.initState();
-    futureLista = JogoDao().listarJogos();
+    //futureLista = JogoDao().listarJogos();
   }
   //loadData();
 

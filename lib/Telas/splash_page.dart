@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:projetogaejoju/Telas/home_page.dart';
-import 'package:projetogaejoju/db/perfis_dao.dart';
 import 'package:projetogaejoju/db/shared_prefs.dart';
 import 'package:projetogaejoju/Telas/login.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -51,9 +51,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      color: Colors.deepPurple,
+      backgroundColor:  Colors.deepPurple,
       body: Center(
-        child: Icon(Icons.fox, color: Colors.white, size: 50)
+          child: Icon(FontAwesomeIcons.firefox, color: Colors.white, size: 100)
       ),
     );
   }

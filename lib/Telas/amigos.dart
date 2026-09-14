@@ -47,10 +47,10 @@ class _AmigosState extends State<Amigos> {
                 ),
 
                 SizedBox(width: 125,),
-                BotaoAmigos(
-                  telaRetorno: Jogo(),
+               /* BotaoAmigos(
+                  //telaRetorno: Jogo(),
                   icone: Icons.sports_esports_outlined,
-                ),
+                ),*/
 
                 SizedBox(width: 38,),
                 BotaoAmigos(
