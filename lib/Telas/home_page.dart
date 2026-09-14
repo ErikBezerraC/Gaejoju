@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projetogaejoju/Telas/amigos.dart';
 import 'package:projetogaejoju/Telas/aulas.dart';
 import 'package:projetogaejoju/Telas/mascote.dart';
 import 'package:projetogaejoju/Telas/profile.dart';
@@ -20,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   List pages = [
     Aulas(),
     Revisar(),
-    Amigos(),
     Mascote(),
     Profile()
   ];
@@ -45,7 +43,6 @@ class _HomePageState extends State<HomePage> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.desktop_windows), label: 'Aulas'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Revisao'),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Amigos'),
             BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.firefoxBrowser), label: 'Mascote'), //trocar no futuro por que é a mão
             BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined), label: 'Profile')
           ]),

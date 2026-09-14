@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projetogaejoju/Telas/home_page.dart';
-import 'package:projetogaejoju/db/perfis_dao.dart';
 import 'package:projetogaejoju/db/shared_prefs.dart';
 import 'package:projetogaejoju/api/perfil_api.dart';
 
@@ -20,6 +19,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.deepPurple,
         body: Padding(
           padding: const EdgeInsets.all(32),
           child: Column(
@@ -27,31 +27,36 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Entre ou cadastre-se no Airbnb',
-                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                'Entre ou cadastre-se',
+                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold, color: Colors.white),
               ),
               SizedBox(height: 24),
               TextField(
                 controller: userController,
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'Usuário',
+                  hintText: 'Email',
+                  hintStyle: TextStyle(color: Colors.white),
                   focusedBorder: buildUserOutlineInputBorder(),
                   border: buildUserOutlineInputBorder(),
+
                 ),
               ),
               TextField(
                 controller: passwordController,
                 obscureText: true,
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Senha',
+                  hintStyle: TextStyle(color: Colors.white),
                   focusedBorder: buildPasswordOutlineInputBorder(),
                   border: buildPasswordOutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 25),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFE41D56),
+                  backgroundColor: Colors.deepPurpleAccent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8), // <-- Radius
                   ),
@@ -75,7 +80,7 @@ class _LoginState extends State<Login> {
                 child: Text(
                   'Cadastrar Usuário',
                   style: TextStyle(
-                    color: Color(0xFFE41D56),
+                    color: Colors.deepPurpleAccent,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
@@ -113,14 +118,14 @@ class _LoginState extends State<Login> {
 
   buildPasswordOutlineInputBorder() {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.grey),
+      borderSide: BorderSide(color: Colors.white, width: 2),
       borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
     );
   }
 
   buildUserOutlineInputBorder() {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.grey),
+      borderSide: BorderSide(color: Colors.white, width: 2),
       borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
     );
   }
