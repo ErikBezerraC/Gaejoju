@@ -40,6 +40,7 @@ dependencies:
   path:
   shared_preferences:
   dio:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
