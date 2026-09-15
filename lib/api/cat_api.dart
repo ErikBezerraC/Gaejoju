@@ -1,18 +1,16 @@
-import 'package:projetogaejoju/domain/jogo.dart';
+import 'package:projetogaejoju/domain/cat.dart';
 import 'package:dio/dio.dart';
 
-class AddressApi {
+class CatApi {
   final dio = Dio();
 
   Future<Address> showCats(String cat) async {
-    late Address address;
 
-    // retorna imagem: final response = await dio.get('https://cataas.com/cat');
-    //retorna json:
+    //fazendo requisiçao json *get:
     final response = await dio.get('https://cataas.com/cat?json=true');
 
     if (response.statusCode == 200) {
-      Address.fromJson(response.data);
+      address = Address.fromJson(response.data);
     }
 
     return address;

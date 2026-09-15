@@ -5,13 +5,11 @@ class Jogo {
 
   Jogo({this.id, required this.nome, required this.urlImg});
 
-  // Construtor nomeado
   Jogo.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         nome = json['nome'],
         urlImg = json['urlImg'];
 
-  // Método auxiliar caso precise salvar dados no futuro
   Map<String, dynamic> toJson() {
     return {
       'id': id,

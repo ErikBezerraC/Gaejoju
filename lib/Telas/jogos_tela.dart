@@ -1,41 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projetogaejoju/api/address_api.dart';
+import 'package:projetogaejoju/api/cat_api.dart';
+import 'package:projetogaejoju/api/jogos_api.dart';
 import 'package:projetogaejoju/domain/jogo.dart';
-import 'package:projetogaejoju/domain/Address.dart';
-import 'package:projetogaejoju/db/jogo_dao.dart';
+import 'package:projetogaejoju/domain/cat.dart';
 import 'package:projetogaejoju/widget/jogo_add.dart';
 
-class Jogos extends StatefulWidget {
-  const Jogos({super.key});
+class JogosTela extends StatefulWidget {
+  const JogosTela({super.key});
 
   @override
-  State<Jogos> createState() => _JogoState();
+  State<JogosTela> createState() => _JogosTelaState();
 }
 
-class _JogoState extends State<Jogos> {
+class _JogosTelaState extends State<JogosTela> {
+  //declaração do future
   late Future<List<Jogo>> futureLista;
 
-  //interrogação pois o valor pode ser nulo
+  // Interrogação pois o valor inicial é nulo
   Cat? gato;
 
   @override
   void initState() {
     super.initState();
-
-    futureLista = JogoDao().listarJogos();
-
-
+    futureLista = JogosApi().listarPropriedades();
   }
 
   Future<void> mostrarGato() async {
-    final resultado = await AddressApi().showCats('');
+    final resultado = await CatApi().showCats('');
 
     setState(() {
       gato = resultado;
     });
-
-
   }
 
   @override
@@ -72,19 +68,16 @@ class _JogoState extends State<Jogos> {
           ),
         ),
       ),
-
       backgroundColor: const Color(0xFF4F2B82),
-
       body: Column(
         children: [
-
-          // Lista de jogos
+          // Lista de jogos (API Fake)
           Expanded(
-            child: FutureBuilder(
+            child: FutureBuilder<List<Jogo>>(
               future: futureLista,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  List listaJogos = snapshot.requireData;
+                  List<Jogo> listaJogos = snapshot.requireData;
 
                   return ListView.builder(
                     itemCount: listaJogos.length,
@@ -103,7 +96,7 @@ class _JogoState extends State<Jogos> {
             ),
           ),
 
-          // Gatinho no final
+          // Gatinho exibido após clicar no botão
           if (gato != null)
             Image.network(
               'https://cataas.com${gato!.url}',
@@ -112,7 +105,7 @@ class _JogoState extends State<Jogos> {
               fit: BoxFit.cover,
             ),
 
-          // Botão
+          // Botão para carregar o gatinho
           TextButton.icon(
             onPressed: mostrarGato,
             icon: const Icon(
@@ -131,7 +124,5 @@ class _JogoState extends State<Jogos> {
         ],
       ),
     );
-
-
   }
 }

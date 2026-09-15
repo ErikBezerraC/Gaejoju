@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projetogaejoju/Telas/adicionar_amigo.dart';
-import 'package:projetogaejoju/Telas/jogo.dart';
+import 'package:projetogaejoju/Telas/jogos_tela.dart';
 import 'package:projetogaejoju/db/conversas_dao.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
 import 'package:projetogaejoju/widget/botao_amigos.dart';

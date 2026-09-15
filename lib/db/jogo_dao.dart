@@ -1,5 +1,5 @@
 import 'package:projetogaejoju/db/db_helper.dart';
-import 'package:projetogaejoju/domain/jogo.dart';
+import 'package:projetogaejoju/domain/jogos_tela.dart';
 import 'package:sqflite/sqflite.dart';
 
 class JogoDao {
