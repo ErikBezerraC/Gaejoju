@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../api/video_api.dart';
-import '../domain/videos.dart';
+import 'package:projetogaejoju/api/aulasvid_api.dart';
+import 'package:projetogaejoju/domain/videos.dart';
 
 class VariaveisRevisao extends StatefulWidget {
   const VariaveisRevisao({super.key});
@@ -174,10 +173,6 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
 
                   divisao(),
 
-                  // =========================
-                  // BLOCO DE VÍDEO
-                  // =========================
-
                   Container(
                     width: 200,
                     height: 40,
@@ -298,10 +293,6 @@ class _VariaveisRevisaoState extends State<VariaveisRevisao> {
                   const SizedBox(height: 5),
 
                   divisao(),
-
-                  // =========================
-                  // BLOCO DAS QUESTÕES
-                  // =========================
 
                   Container(
                     width: 200,
