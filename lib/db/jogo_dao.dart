@@ -1,5 +1,5 @@
 import 'package:projetogaejoju/db/db_helper.dart';
-import 'package:projetogaejoju/domain/jogos_tela.dart';
+import 'package:projetogaejoju/domain//jogo.dart';
 import 'package:sqflite/sqflite.dart';
 
 class JogoDao {
@@ -19,7 +19,6 @@ class JogoDao {
       // Add Jogo na Lista
       listaJogos.add(jogo);
     }
-    await Future.delayed(Duration(seconds: 5));
     return listaJogos;
   }
 }

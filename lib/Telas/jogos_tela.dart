@@ -14,10 +14,8 @@ class JogosTela extends StatefulWidget {
 }
 
 class _JogosTelaState extends State<JogosTela> {
-  //declaração do future
   late Future<List<Jogo>> futureLista;
 
-  // Interrogação pois o valor inicial é nulo
   Cat? gato;
 
   @override
@@ -27,7 +25,7 @@ class _JogosTelaState extends State<JogosTela> {
   }
 
   Future<void> mostrarGato() async {
-    final resultado = await CatApi().showCats('');
+    final resultado = await CatApi().showCats();
 
     setState(() {
       gato = resultado;
@@ -98,11 +96,20 @@ class _JogosTelaState extends State<JogosTela> {
 
           // Gatinho exibido após clicar no botão
           if (gato != null)
-            Image.network(
-              'https://cataas.com${gato!.url}',
-              height: 150,
-              width: 150,
-              fit: BoxFit.cover,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.network(
+                'https://cataas.com/cat/${gato!.id}',
+                height: 150,
+                width: 150,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Text(
+                    'Erro ao carregar imagem',
+                    style: TextStyle(color: Colors.white),
+                  );
+                },
+              ),
             ),
 
           // Botão para carregar o gatinho

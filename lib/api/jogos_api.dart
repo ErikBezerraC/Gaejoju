@@ -6,7 +6,7 @@ class JogosApi {
   final baseUrl = 'https://my-json-server.typicode.com/johnelionai33-arch/FakeApi';
 
   Future<List<Jogo>> listarPropriedades() async {
-    final response = await dio.get('$baseUrl/propriedades');
+    final response = await dio.get('$baseUrl/jogos');
 
     List<Jogo> listaPropriedades = [];
     if (response.statusCode == 200 && response.data != null) {
