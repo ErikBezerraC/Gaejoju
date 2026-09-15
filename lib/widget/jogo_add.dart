@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projetogaejoju/domain/jogos_tela.dart';
-
+import 'package:projetogaejoju/domain/jogo.dart';
 
 
 class JogoAdd extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projetogaejoju/Telas/adicionar_amigo.dart';
 import 'package:projetogaejoju/Telas/jogos_tela.dart';
@@ -100,4 +100,4 @@ class _AmigosState extends State<Amigos> {
       ),
     );
   }
-}
+}*/

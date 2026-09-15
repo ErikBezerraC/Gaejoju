@@ -4,15 +4,14 @@ import 'package:dio/dio.dart';
 class CatApi {
   final dio = Dio();
 
-  Future<Address> showCats(String cat) async {
+  Future<Cat> showCats() async {
 
-    //fazendo requisiçao json *get:
     final response = await dio.get('https://cataas.com/cat?json=true');
 
     if (response.statusCode == 200) {
-      address = Address.fromJson(response.data);
+      final catObj = Cat.fromJson(response.data);
+      return catObj;
     }
-
-    return address;
+    throw Exception('Erro ao buscar dados do gato. Status: ${response.statusCode}');
   }
 }
