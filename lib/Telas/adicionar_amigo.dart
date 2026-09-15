@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projetogaejoju/db/perfis_dao.dart';
 import 'package:projetogaejoju/domain/perfis.dart';
@@ -125,3 +125,4 @@ class _AdicionarAmigoState extends State<AdicionarAmigo> {
     );
   }
 }
+*/

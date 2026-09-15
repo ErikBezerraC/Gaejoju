@@ -1,3 +1,4 @@
+/*
 import 'package:projetogaejoju/db/db_helper.dart';
 import 'package:projetogaejoju/domain/perfis.dart';
 import 'package:sqflite/sqflite.dart';
@@ -34,3 +35,4 @@ class PerfisDao {
     db.insert('PERFIL', perfil.toJson());
   }
 }
+*/

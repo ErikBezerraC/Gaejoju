@@ -107,7 +107,12 @@ class _ProfileState extends State<Profile> {
                 isExpanded: true,
                 value: _estadoSelecionado,
                 hint: Text('Selecione seu estado',
-                    style: GoogleFonts.comicNeue(color: Colors.white70)),
+                    style: GoogleFonts.comicNeue(
+                      color: Colors.white70,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+
                 items: estados.map((estado) {
                   return DropdownMenuItem<Estado>(
                     value: estado,
@@ -130,7 +135,7 @@ class _ProfileState extends State<Profile> {
             Text(
               'Estado selecionado: ${_estadoSelecionado!.nome}',
               style: GoogleFonts.comicNeue(
-                fontSize: 16,
+                fontSize: 19,
                 color: Colors.amber,
                 fontWeight: FontWeight.bold,
               ),
