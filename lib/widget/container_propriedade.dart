@@ -1,0 +1,80 @@
+import 'package:projetogaejoju/pages/datalhes_pag.dart';
+import 'package:projetogaejoju/domain/propriedades.dart';
+import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class ContainerPropriedade extends StatefulWidget {
+  Propriedade propriedade;
+
+  ContainerPropriedade({super.key, required this.propriedade});
+
+  @override
+  State<ContainerPropriedade> createState() => _ContainerPropriedadeState();
+}
+
+class _ContainerPropriedadeState extends State<ContainerPropriedade> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+        final Geocoding geocoding = Geocoding();
+        List<Location> locations = await geocoding.locationFromAddress(widget.propriedade.local);
+        var location = LatLng(locations[0].latitude, locations[0].longitude);
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return detalhes(propriedade: widget.propriedade, location: location);
+            },
+          ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  child: Image.network(widget.propriedade.urlImage, height: 300, fit: BoxFit.cover),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                Positioned(
+                  child: Icon(Icons.favorite, size: 36, color: Colors.pinkAccent),
+                  top: 16,
+                  right: 16,
+                ),
+              ],
+            ),
+
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.propriedade.local,
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ), //TextStyle(),
+                ),
+                Row(children: [Icon(Icons.star, size: 16), buildText('4.76')]),
+              ],
+            ),
+            buildText(widget.propriedade.host),
+            buildText(widget.propriedade.dates),
+            buildText(widget.propriedade.total),
+          ],
+        ),
+      ),
+    );
+  }
+
+  buildText(String text) {
+    return Text(text, style: GoogleFonts.inter());
+  }
+}

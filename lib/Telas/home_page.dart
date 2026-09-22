@@ -46,8 +46,7 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(icon: Icon(Icons.desktop_windows), label: 'Aulas'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Revisao'),
            // BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Amigos'),
-            BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.firefoxBrowser), label: 'Mascote'), //trocar no futuro por que é a mão
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined), label: 'Profile')
+            BottomNavigationBarItem(icon: FaIcon(FontAwesomeIcons.firefoxBrowser), label: 'Mascote'),            BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined), label: 'Profile')
           ]),
 
     );

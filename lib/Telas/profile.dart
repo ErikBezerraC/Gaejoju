@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../widget/ofensiva.dart';
 import '../domain/estado.dart';
 import '../api/estado_service.dart';
+import '../api/perfil_fakeapi.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -13,12 +14,14 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   late Future<List<Estado>> _futureEstados;
+  late Future<List<Perfil>> _futurePerfis;
   Estado? _estadoSelecionado;
 
   @override
   void initState() {
     super.initState();
     _futureEstados = EstadoService().buscarEstados();
+    _futurePerfis = FakeApi().buscarPerfis();
   }
 
   @override
@@ -53,6 +56,8 @@ class _ProfileState extends State<Profile> {
                 ),
                 SizedBox(height: 20),
                 containerEstado(),
+                SizedBox(height: 15),
+                containerPerfis(),
                 SizedBox(height: 15),
                 containerDias(),
                 SizedBox(height: 15),
@@ -141,6 +146,60 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ],
+        ],
+      ),
+    );
+  }
+
+  Widget containerPerfis() {
+    return Container(
+      width: 350,
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: Color(0xFFA770F4),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Grupo',
+            style: GoogleFonts.comicNeue(
+              fontSize: 22,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10),
+          FutureBuilder<List<Perfil>>(
+            future: _futurePerfis,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError) {
+                return Text(
+                  'Erro ao carregar perfis',
+                  style: GoogleFonts.comicNeue(color: Colors.white),
+                );
+              }
+
+              final perfis = snapshot.data ?? [];
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: perfis.map((perfil) {
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 6),
+                    child: Text(
+                      '${perfil.nome} - ${perfil.curso}',
+                      style: GoogleFonts.comicNeue(color: Colors.white),
+                    ),
+                  );
+                }).toList(),
+              );
+            },
+          ),
         ],
       ),
     );
