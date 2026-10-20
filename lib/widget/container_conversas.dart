@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/Telas/LocalAmigos.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
 
 class ContainerConversas extends StatefulWidget {
@@ -16,9 +17,19 @@ class _ConversasState extends State<ContainerConversas> {
   Widget build(BuildContext context) {
     return ListTile( //ele ja vem com uma identação para algo na esquerda e na direita, uma msg e um subtitulo
 
-      leading: CircleAvatar( //leading é oq tem no lado esquerdo, no nosso caso e a foto da pessoa
-        radius: 30,
-        backgroundImage: NetworkImage(widget.conversas.img,),
+      leading: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Localamigos(),
+            ),
+          );
+        },
+        child: CircleAvatar(
+          radius: 30,
+          backgroundImage: NetworkImage(widget.conversas.img),
+        ),
       ),
 
       title: Text(widget.conversas.nome,style:GoogleFonts.comicNeue(

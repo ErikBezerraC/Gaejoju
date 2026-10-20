@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class Localamigos extends StatefulWidget {
+  const Localamigos({super.key});
+
+  @override
+  State<Localamigos> createState() => _LocalamigosState();
+}
+
+class _LocalamigosState extends State<Localamigos> {
+
+  final Geocoding geocoding = Geocoding();
+
+  void initState() {
+    super.initState();
+//    loadData();
+  }
+
+  // loadData() async {
+  //   setState(() {});
+  // }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFF4F2B82),
+      body: Column(
+        children: [
+
+          Container(
+            color: Colors.amber,
+            child: SizedBox(
+
+              height: 500,
+              child: GoogleMap(
+                initialCameraPosition: const CameraPosition(
+                  target: LatLng(-9.6658, -35.7353),
+                  zoom: 13,
+                ),
+                markers: {
+                  const Marker(
+                    markerId: MarkerId('Amigo'),
+                    position: LatLng(-9.6658, -35.7353),
+                    infoWindow: InfoWindow(
+                      title: 'Localização do amigo',
+                    ),
+                  ),
+                },
+              ),
+            ),
+          ),
+
+          SizedBox(height: 20,),
+
+          Container(
+            width: 300,
+            height: 50,
+            decoration: BoxDecoration(
+                color: Color(0xFFA770F4),
+                borderRadius: BorderRadius.circular(15)
+            ),
+
+            child: Center(
+              child: Text('Onde Está Seu Amigo?', style: GoogleFonts.comicNeue(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
+            ),
+          )
+        ),
+      ]
+      )
+    );
+  }
+}
