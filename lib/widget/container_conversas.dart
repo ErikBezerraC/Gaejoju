@@ -23,7 +23,7 @@ class _ConversasState extends State<ContainerConversas> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Localamigos(location: widget.location,),
+              builder: (context) => Localamigos(locationName: "ARAPIRACA - ALAGOAS"),
             ),
           );
         },

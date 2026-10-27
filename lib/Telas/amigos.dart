@@ -28,7 +28,7 @@ class _AmigosState extends State<Amigos> {
 
   loadData() async {
     listaConversas = await ConversasDao().listarConversas();
-    listaLocation = await PerfilApi().listarPerfisLocation();
+    // listaLocation = await PerfilApi().listarPerfisLocation();
     setState(() {});
   }
   Widget build(BuildContext context) {
@@ -100,7 +100,7 @@ class _AmigosState extends State<Amigos> {
         itemCount: listaConversas.length,
 
         itemBuilder: (context,i){
-          return ContainerConversas(conversas: listaConversas[i],location: listaLocation[i].location,);
+          return ContainerConversas(conversas: listaConversas[i],location:"",);
         },
       ),
     );
