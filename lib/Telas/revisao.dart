@@ -29,6 +29,7 @@ class _RevisarState extends State<Revisar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF4F2B82),
         toolbarHeight: 90, //aumenta o tamanho da app bar
         title: Column(

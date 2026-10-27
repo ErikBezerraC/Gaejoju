@@ -11,6 +11,7 @@ class Profile extends StatefulWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF4F2B82),
         title: Row(
           children: [

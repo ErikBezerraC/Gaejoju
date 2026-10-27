@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projetogaejoju/Telas/LocalAmigos.dart';
+import 'package:projetogaejoju/Telas/local_amigos.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
 
 class ContainerConversas extends StatefulWidget {

@@ -14,6 +14,7 @@ class _MascoteState extends State<Mascote> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF4F2B82),
         elevation: 0,
         flexibleSpace: Container( //flexiblespace é basicamente o conteúdo que sera colcoado na appbar(tipo child). O primeiro contrainer vai conter a cor secundária

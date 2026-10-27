@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:projetogaejoju/Telas/amigos.dart';
+import 'package:projetogaejoju/Telas/home_page.dart';
 
 class Localamigos extends StatefulWidget {
   const Localamigos({super.key});
@@ -54,19 +56,42 @@ class _LocalamigosState extends State<Localamigos> {
 
           SizedBox(height: 20,),
 
-          Container(
-            width: 300,
-            height: 50,
-            decoration: BoxDecoration(
-                color: Color(0xFFA770F4),
-                borderRadius: BorderRadius.circular(15)
-            ),
+          Row(
+            children: [
+              SizedBox(width: 15,),
+              Container(
+                  width: 300,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Color(0xFFA770F4),
+                      borderRadius: BorderRadius.circular(15)
+                  ),
 
-            child: Center(
-              child: Text('Onde Está Seu Amigo?', style: GoogleFonts.comicNeue(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
-            ),
+                  child: Center(
+                    child: Text('Onde Está Seu Amigo?', style: GoogleFonts.comicNeue(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
+                    ),
+                  )
+              ),
+              
+              SizedBox(width: 25,),
+              
+              IconButton(
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+              )
+            ],
           )
-        ),
       ]
       )
     );

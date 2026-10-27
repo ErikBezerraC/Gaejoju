@@ -30,6 +30,7 @@ class _AmigosState extends State<Amigos> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF4F2B82),
         toolbarHeight: 93, //aumenta o tamanho da app bar
         title: Column(
