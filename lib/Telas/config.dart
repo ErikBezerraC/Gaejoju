@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projetogaejoju/Telas/sobre.dart';
 class Config extends StatefulWidget {
   const Config({super.key});
 
@@ -42,21 +43,19 @@ class _ConfigState extends State<Config> {
                     SizedBox(
                       height: 8,
                     ),
-                    buildContainer()
+                    buildContainer(context)
                   ],
 
                 )
 
             ),
           ]
-
-
       ),
     );
   }
 }
 
-buildContainer(){
+buildContainer(context){
   return Container(
     height: 510,
     width: 350,
@@ -132,65 +131,130 @@ buildContainer(){
 
           Row(
             children: [
-              Text('Privacidade e Segurança',style: GoogleFonts.comicNeue(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
-              ),),
-
-              SizedBox(
-                width: 50,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sobre(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Privacidade e Segurança',
+                  style: GoogleFonts.comicNeue(
+                    color: Colors.white,
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-
-              Icon(Icons.lock_outline,color: Colors.white, size: 23,),
+              SizedBox(width: 50),
+              Icon(
+                Icons.lock_outline,
+                color: Colors.white,
+                size: 23,
+              ),
             ],
           ),
 
           linhas(),
 
+      Row(
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Sobre(),
+                ),
+              );
+            },
+            child: Text(
+              'Sobre',
+              style: GoogleFonts.comicNeue(
+                color: Colors.white,
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 174,
+          ),
+          Icon(
+            Icons.info_outline_rounded,
+            color: Colors.white,
+            size: 23,
+          ),
+        ],
+      ),
+          linhas(),
+
           Row(
             children: [
-              Text('Sobre o App',style: GoogleFonts.comicNeue(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
-              ),),
-
-              SizedBox(
-                width: 174,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sobre(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Suporte',
+                  style: GoogleFonts.comicNeue(
+                    color: Colors.white,
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
 
-              Icon(Icons.phone_android,color: Colors.white, size: 23,),
+              SizedBox(width: 220),
+
+              Icon(
+                Icons.people_alt_outlined,
+                color: Colors.white,
+                size: 23,
+              ),
             ],
           ),
 
           linhas(),
 
-          Row(
-            children: [
-              Text('Suporte',style: GoogleFonts.comicNeue(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
-              ),),
-
-              SizedBox(
-                width: 220,
+    Row(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Sobre(),
               ),
-
-              Icon(Icons.people_alt_outlined,color: Colors.white, size: 23,),
-            ],
+            );
+          },
+          child: Text(
+            'Encerrar Sessão',
+            style: GoogleFonts.comicNeue(
+              color: Colors.white,
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+        ),
 
-          linhas(),
+        SizedBox(width: 131),
 
-          Row(
-            children: [
-              Text('Encerrar Sessão',style: GoogleFonts.comicNeue(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold,
-              ),),
-
-              SizedBox(
-                width: 131,
-              ),
-
-              Icon(Icons.door_back_door_outlined,color: Colors.white, size: 23,),
-            ],
-          ),
+        Icon(
+          Icons.door_back_door_outlined,
+          color: Colors.white,
+          size: 23,
+        ),
+      ],
+    ),
 
         ],
       ),
