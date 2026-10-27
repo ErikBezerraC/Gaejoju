@@ -19,6 +19,21 @@ class PerfilApi {
     return listarPerfis;
   }
 
+  Future<List<Perfis>> listarPerfisLocation() async {
+    final resposta = await dio.get(
+      'https://my-json-server.typicode.com/ErikBezerraC/fake_api/PERFIS',
+    );
+
+    List<Perfis> listarPerfis = [];
+
+    for (var json in resposta.data) {
+      Perfis perfil = Perfis.fromJsonLocation(json);
+      listarPerfis.add(perfil);
+    }
+
+    return listarPerfis;
+  }
+
   Future<bool> login(String email, String password) async {
     try {
       final perfis = await listarPerfis();

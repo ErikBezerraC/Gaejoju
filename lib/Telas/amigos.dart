@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projetogaejoju/Telas/adicionar_amigo.dart';
 import 'package:projetogaejoju/Telas/jogo.dart';
+import 'package:projetogaejoju/api/perfil_api.dart';
 import 'package:projetogaejoju/db/conversas_dao.dart';
 import 'package:projetogaejoju/domain/conversas.dart';
+import 'package:projetogaejoju/domain/perfis.dart';
 import 'package:projetogaejoju/widget/botao_amigos.dart';
 import 'package:projetogaejoju/widget/container_conversas.dart';
 
@@ -16,6 +18,7 @@ class Amigos extends StatefulWidget {
 
 class _AmigosState extends State<Amigos> {
   List<Conversas> listaConversas = [];
+  List<Perfis> listaLocation = [];
 
   @override
   void initState() {
@@ -25,6 +28,7 @@ class _AmigosState extends State<Amigos> {
 
   loadData() async {
     listaConversas = await ConversasDao().listarConversas();
+    listaLocation = await PerfilApi().listarPerfisLocation();
     setState(() {});
   }
   Widget build(BuildContext context) {
@@ -96,7 +100,7 @@ class _AmigosState extends State<Amigos> {
         itemCount: listaConversas.length,
 
         itemBuilder: (context,i){
-          return ContainerConversas(conversas: listaConversas[i],);
+          return ContainerConversas(conversas: listaConversas[i],location: listaLocation[i].location,);
         },
       ),
     );

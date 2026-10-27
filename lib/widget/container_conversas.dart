@@ -5,8 +5,9 @@ import 'package:projetogaejoju/domain/conversas.dart';
 
 class ContainerConversas extends StatefulWidget {
   Conversas conversas;
+  String location;
 
-  ContainerConversas({super.key, required this.conversas});
+  ContainerConversas({super.key, required this.conversas,required this.location});
 
   @override
   State<ContainerConversas> createState() => _ConversasState();
@@ -22,7 +23,7 @@ class _ConversasState extends State<ContainerConversas> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Localamigos(),
+              builder: (context) => Localamigos(location: widget.location,),
             ),
           );
         },

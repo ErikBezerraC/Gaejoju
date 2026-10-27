@@ -6,7 +6,9 @@ import 'package:projetogaejoju/Telas/amigos.dart';
 import 'package:projetogaejoju/Telas/home_page.dart';
 
 class Localamigos extends StatefulWidget {
-  const Localamigos({super.key});
+  String location;
+
+  Localamigos({super.key, required this.location});
 
   @override
   State<Localamigos> createState() => _LocalamigosState();
